@@ -7,11 +7,11 @@ const timerMinutes=document.querySelector('.timer.minutes');
 const timerHours=document.querySelector('.timer.hours');
 const timerDays=document.querySelector('.timer.days');
 const circleTotalLength=380;
-const christmasDate='2021-12-25T00:00:00';
-const christmasDay=new Date(christmasDate).getTime();
+const startDate='2021-05-11T00:00:00';
+const startDay=new Date(startDate).getTime();
 const intervalId=setInterval(()=>{
 const today=new Date().getTime();
-  const timeDiff= christmasDay - today;
+  const timeDiff= startDay - today;
   const time=new Date(timeDiff);
   
   if (timeDiff <= 0) {
@@ -21,7 +21,7 @@ const today=new Date().getTime();
 setTimerSeconds(time);
   setTimerMinutes(time);
   setTimerHours(time);
-  setTimerDays(time,timeDiff);
+  setTimerDays(timeDiff);
   
 },1000);
 
@@ -51,7 +51,7 @@ timerHours.textContent = hr;
 
 outerCircleHours.style.strokeDashoffset = hoursPercent
 }
-function setTimerDays(time,timeDiff){
+function setTimerDays(timeDiff){
   const oneDay = 24 * 60 * 60 * 1000;
   const days= Math.floor(timeDiff / oneDay);
 const daysPercent = circleTotalLength - (circleTotalLength / 30) * days
