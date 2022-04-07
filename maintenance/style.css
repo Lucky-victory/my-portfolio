@@ -22,13 +22,26 @@ body{
   font-family: 'Outfit',sans-serif;
   font-size: 16px;
   padding: 1rem;
+  position: relative;
   
-}.socials-wrapper{
+}
+.bg-overlay{
+   position: absolute;
+   width: 100%;
+   bottom: 0;
+   left: 0;
+}
+.bg-overlay svg{
+   width: 100%;
+   height: 100%;
+}
+.socials-wrapper{
    display: flex;
    justify-content: center;
    align-items: center;
    max-width: 500px;
    margin: 2rem auto;
+   gap:1rem;
 }
 .social{
    width: 3rem;
@@ -61,6 +74,10 @@ font-size: 1.2rem;
   color: transparent;
   -webkit-background-clip:text;
   background-clip:text;
+}
+.desc{
+   max-width: 600px;
+   text-align: center;
 }
 .circle-wrapper{
   position: relative;
