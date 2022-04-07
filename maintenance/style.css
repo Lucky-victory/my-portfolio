@@ -21,8 +21,27 @@ body{
   flex-direction: column;
   font-family: 'Outfit',sans-serif;
   font-size: 16px;
+  padding: 1rem;
   
-  
+}.socials-wrapper{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   max-width: 500px;
+   margin: 2rem auto;
+}
+.social{
+   width: 3rem;
+   height: 3rem;
+   border-radius: 50%;
+   box-shadow: 0 8px 12px #0002;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+font-size: 1.2rem;
+   padding: 0.5rem;
+   cursor: pointer;
+   text-decoration: none;
 }
 .container{
   width: 100%;
@@ -35,7 +54,7 @@ body{
 .heading{
   font-size: 3em;
   text-transform: uppercase;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
   font-weight: 600;
   text-align: center;
   background: linear-gradient(120deg,var(--days-color),var(--hours-color),var(--minutes-color),var(--seconds-color));
