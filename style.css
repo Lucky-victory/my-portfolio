@@ -41,7 +41,7 @@ font-family: var(--font-one);
 [data-animate]{
   opacity: 0;
   transition: 0.2s;
-  transform: translate(0,40px);
+  transform: translate(0,10px);
 }
 .animate{
   opacity: 1;
