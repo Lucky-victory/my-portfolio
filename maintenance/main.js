@@ -1,13 +1,13 @@
-const outerCircleSeconds=document.querySelector('.seconds-outer');
-const outerCircleMinutes=document.querySelector('.minutes-outer');
-const outerCircleHours=document.querySelector('.hours-outer');
-const outerCircleDays=document.querySelector('.days-outer');
-const timerSeconds=document.querySelector('.timer.seconds');
-const timerMinutes=document.querySelector('.timer.minutes');
-const timerHours=document.querySelector('.timer.hours');
-const timerDays=document.querySelector('.timer.days');
+const outerCircleSeconds=document.querySelector('[data-seconds-outer]');
+const outerCircleMinutes=document.querySelector('[data-minutes-outer]');
+const outerCircleHours=document.querySelector('[data-hours-outer]');
+const outerCircleDays=document.querySelector('[data-days-outer]');
+const timerSeconds=document.querySelector('[data-timer-seconds]');
+const timerMinutes=document.querySelector('[data-timer-minutes]');
+const timerHours=document.querySelector('[data-timer-hours]');
+const timerDays=document.querySelector('[data-timer-days]');
 const circleTotalLength=380;
-const startDate='2022-06-25T00:00:00';
+const startDate='2022-07-15T00:00:00';
 const startDay=new Date(startDate).getTime();
 const intervalId=setInterval(()=>{
 const today=new Date().getTime();
