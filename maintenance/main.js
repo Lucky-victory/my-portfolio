@@ -7,7 +7,7 @@ const timerMinutes = document.querySelector("[data-timer-minutes]");
 const timerHours = document.querySelector("[data-timer-hours]");
 const timerDays = document.querySelector("[data-timer-days]");
 const circleTotalLength = 380;
-const startDate = "2022-07-20T00:00:00";
+const startDate = "2022-08-18T00:00:00";
 const startDay = new Date(startDate).getTime();
 const intervalId = setInterval(() => {
   const today = new Date().getTime();
