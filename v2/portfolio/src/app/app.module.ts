@@ -4,10 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GestureModule } from './directives/gesture/gesture.module';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, GestureModule],
+  imports: [BrowserModule, AppRoutingModule, GestureModule, IonicModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent],
 })
