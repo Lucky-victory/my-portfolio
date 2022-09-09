@@ -1,11 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>projects</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="menuId"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="cards-container">
+  <div class="cards-container" #content>
     <div class="card">
       <div class="card-image-wrapper">
         <img src="" alt="" class="card-image" />
