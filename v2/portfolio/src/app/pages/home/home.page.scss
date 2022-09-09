@@ -1,0 +1,17 @@
+ion-toolbar.toolbar {
+  --background: #fd4;
+  border-radius: 10px;
+  &::after {
+    display: none;
+  }
+}
+.container {
+  height: 100%;
+}
+.banner {
+  height: 100%;
+  border-radius: 5px;
+  max-height: 700px;
+
+  background: linear-gradient(#fd4a, #f56a);
+}
