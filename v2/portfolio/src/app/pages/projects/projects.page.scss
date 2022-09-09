@@ -1,3 +1,6 @@
+$bx-shadow: -1px 2px 7px 0px rgba(0, 0, 0, 0.75);
+$bx-shadow-light: -1px 2px 7px 0px rgba(255, 255, 255, 0.75);
+
 .cards-container {
   display: flex;
   gap: 1rem;
@@ -8,8 +11,20 @@
 .card {
   min-height: 250px;
   border-radius: 10px;
-  box-shadow: -1px 2px 7px 0px rgba(0, 0, 0, 0.75);
-
+  box-shadow: $bx-shadow;
+  background-color: var(--background, #ccc);
   width: 100%;
   max-width: 400px;
+  overflow: hidden;
+}
+.card-image-wrapper {
+  background-color: #f4f;
+  border-radius: 0 0 15px 15px;
+  min-height: 200px;
+  height: 70%;
+}
+@media all and (prefers-color-scheme: dark) {
+  .card {
+    box-shadow: $bx-shadow-light;
+  }
 }

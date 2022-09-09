@@ -1,7 +1,7 @@
 $tab-width: 50px;
-$home-tab-bg: #e913b3;
+$home-tab-bg: #fc5ad3;
 $projects-tab-bg: #04be9f;
-$contact-tab-bg: #7111ee;
+$contact-tab-bg: #6a60f5;
 $bg-opacity: 0.3;
 ion-tabs {
   padding: 1rem;
@@ -60,9 +60,9 @@ ion-tab-button {
   &.tab-selected {
     width: auto;
     height: auto;
-    border-radius: 25px;
+    border-radius: 35px;
     &::part(native) {
-      padding: 0.5rem 0.75rem;
+      padding: 1rem;
       background-color: #cf19a244;
     }
     &.home {
