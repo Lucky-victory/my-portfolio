@@ -1,0 +1,46 @@
+<ion-split-pane contentId="menu-content" when="lg" [hidden]="isMobile">
+  <ion-menu contentId="menu-content" menuId="menu" side="start" type="overlay">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>onSplitPaneVisible</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-item button routerLink="" routerDirection="root">
+        <ion-label>Click me</ion-label>
+      </ion-item>
+      <ion-segment-button value="pizza" routerLink="/">
+        <ion-label>Pizza</ion-label>
+      </ion-segment-button>
+    </ion-content>
+  </ion-menu>
+  <ion-content id="menu-content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Header</ion-title>
+        <ion-buttons slot="start">
+          <ion-menu-button menu="menu"></ion-menu-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+  </ion-content>
+</ion-split-pane>
+
+<ion-tabs [hidden]="!isMobile">
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="tab1">
+      <ion-icon name="triangle"></ion-icon>
+      <ion-label>Tab 1</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab2">
+      <ion-icon name="ellipse"></ion-icon>
+      <ion-label>Tab 2</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab3">
+      <ion-icon name="square"></ion-icon>
+      <ion-label>Tab 3</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
