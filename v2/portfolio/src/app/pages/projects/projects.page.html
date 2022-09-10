@@ -7,11 +7,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [scrollX]="true">
   <div class="cards-container" #content>
     <div class="card">
       <div class="card-image-wrapper">
         <img src="" alt="" class="card-image" />
+      </div>
+      <div class="btns-container">
+        <ion-button class="btn">
+          <ion-icon slot="start" name="logo-github"></ion-icon>
+          view source
+        </ion-button>
       </div>
     </div>
     <div class="card">

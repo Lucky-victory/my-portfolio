@@ -8,7 +8,12 @@ import { Platform } from '@ionic/angular';
 })
 export class AppComponent {
   isMobile: boolean;
+  isCurrent:boolean=false;
   constructor(private platform: Platform) {
     this.isMobile = platform.is('mobile');
+  }
+
+  addAnimationClass(){
+this.isCurrent=true;
   }
 }

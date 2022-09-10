@@ -10,7 +10,8 @@ export class ProjectsPage implements OnInit {
   animation: Animation;
   @ViewChild('content') ionContent: ElementRef<HTMLDivElement>;
   constructor(private animationCtrl: AnimationController) {}
-  ionViewWillEnter() {
+
+  ionViewDidEnter() {
     console.log(this.ionContent);
 
     this.animation = this.animationCtrl.create();
