@@ -46,7 +46,7 @@
     <ion-router-outlet id="menu-content"></ion-router-outlet>
     <!-- <ion-content id="menu-content" [fullscreen]="true"></ion-content> -->
   </ion-split-pane>
-  <ion-tabs class="ion-hide-md-up" *ngIf="isMobile">
+  <ion-tabs *ngIf="isMobile" class="tabs-container">
     <ion-tab-bar slot="bottom" [translucent]="true">
       <div class="tabs-inner">
         <ion-tab-button tab="home" class="home">
@@ -64,5 +64,6 @@
         </ion-tab-button>
       </div>
     </ion-tab-bar>
+    <ion-router-outlet class="tabs-outlet"></ion-router-outlet>
   </ion-tabs>
 </ion-app>
