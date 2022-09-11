@@ -1,34 +1,29 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>projects</ion-title>
-    <ion-buttons slot="start">
-      <ion-menu-button menu="menuId"></ion-menu-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [scrollX]="true">
-  <div class="cards-container" #content>
-    <div class="card">
-      <div class="card-image-wrapper">
-        <img src="" alt="" class="card-image" />
-      </div>
-      <div class="btns-container">
-        <ion-button class="btn">
-          <ion-icon slot="start" name="logo-github"></ion-icon>
-          view source
-        </ion-button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-image-wrapper">
-        <img src="" alt="" class="card-image" />
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-image-wrapper">
-        <img src="" alt="" class="card-image" />
-      </div>
-    </div>
+<ion-content [scrollX]="true" [fullscreen]="true">
+  <div class="inner-container" [ngClass]="{radius:!showTabs}">
+    <swiper
+      [autoplay]="true"
+      [keyboard]="true"
+      [pagination]="{clickable:true}"
+      [zoom]="true"
+      [loop]="true"
+      [slidesPerView]="slidesPerView"
+      [spaceBetween]="15"
+    >
+      <ng-template swiperSlide>
+        <div class="card">
+          <div class="card-image-wrapper">
+            <img
+              src="assets/images/screely-1662845944228.png"
+              alt=""
+              class="card-image"
+            />
+          </div>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="card">Slide 2</div>
+      </ng-template>
+      <ng-template swiperSlide><div class="card">Slide 3</div> </ng-template>
+    </swiper>
   </div>
 </ion-content>

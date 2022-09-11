@@ -1,23 +1,36 @@
 $banner-bg: #ef823d;
-ion-toolbar.toolbar {
-  --background: #fd4;
-  border-radius: 10px;
-  &::after {
-    display: none;
-  }
-}
-.container {
+
+.inner-container {
   height: 100%;
+  width: 100%;
+  &.radius {
+    border-radius: var(--bg-radius);
+  }
+  background-color: var(--home-bg);
 }
 .banner {
   height: 100%;
-
-  background: $banner-bg;
+  // border-radius: inherit;
+  // background: $banner-bg;
 }
 .banner-image-wrapper {
   position: sticky;
   top: 0;
   max-height: 400px;
+  // position: relative;
+}
+.banner-image-wrapper::before {
+  content: "";
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $banner-bg;
+  z-index: -1;
+  isolation: isolate;
+  border-radius: 50%;
 }
 .banner-content {
   padding: 1rem;

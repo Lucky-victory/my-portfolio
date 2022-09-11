@@ -1,14 +1,5 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-    <ion-buttons slot="start">
-      <ion-menu-button menu="menuId"></ion-menu-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content [fullscreen]="true">
-  <div class="container">
+  <div class="inner-container" [ngClass]="{radius:!showTabs}">
     <div class="banner">
       <div class="banner-image-wrapper">
         <img

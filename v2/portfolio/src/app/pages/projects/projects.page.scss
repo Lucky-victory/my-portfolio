@@ -1,6 +1,21 @@
 $bx-shadow: -1px 2px 7px 0px rgba(0, 0, 0, 0.5);
 $bx-shadow-light: -1px 2px 7px 0px rgba(255, 255, 255, 0.5);
 
+.inner-container {
+  height: 100%;
+  width: 100%;
+  &.radius {
+    border-radius: var(--bg-radius);
+  }
+  background-color: var(--projects-bg);
+  padding: 1rem;
+}
+.swiper {
+  height: 100%;
+  padding: 1rem 0.375rem;
+  // background: var(--background);
+  --bullet-background-active: var(--color);
+}
 .cards-container {
   display: flex;
   gap: 1rem;
@@ -10,29 +25,31 @@ $bx-shadow-light: -1px 2px 7px 0px rgba(255, 255, 255, 0.5);
 }
 .card {
   height: 100%;
-  min-height: 350px;
+  min-height: 450px;
   border-radius: 10px;
   box-shadow: $bx-shadow;
   background-color: var(--background, #f5f5f5);
   flex-shrink: 0;
-  flex-grow: 1;
-  flex-basis: 1;
+  margin: auto;
   max-width: 400px;
-  //   width: 100%;
+  width: 100%;
   overflow: hidden;
 }
-.card:last-child {
-  margin-right: 1rem;
-  background-color: #f67;
-}
+
 .card-image-wrapper {
   background-color: #f4cccf;
   border-radius: 0 0 15px 15px;
   min-height: 250px;
-  height: 70%;
+  // height: 70%;
+  padding: 1rem 0.5rem;
   box-shadow: -2px 4px 6px #ccc3;
 }
-
+.card-image {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+  overflow: hidden;
+}
 .btns-container {
   padding: 1rem;
 }

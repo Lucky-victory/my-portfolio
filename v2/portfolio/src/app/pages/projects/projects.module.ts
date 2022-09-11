@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { ProjectsPageRoutingModule } from './projects-routing.module';
+import { SwiperModule } from 'swiper/angular';
 
 import { ProjectsPage } from './projects.page';
 
@@ -13,8 +14,9 @@ import { ProjectsPage } from './projects.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ProjectsPageRoutingModule
+    SwiperModule,
+    ProjectsPageRoutingModule,
   ],
-  declarations: [ProjectsPage]
+  declarations: [ProjectsPage],
 })
 export class ProjectsPageModule {}

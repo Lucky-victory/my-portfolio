@@ -1,0 +1,8 @@
+.inner-container {
+  width: 100%;
+  height: 100%;
+  &.radius {
+    border-radius: var(--bg-radius);
+  }
+  background-color: var(--contact-bg);
+}
