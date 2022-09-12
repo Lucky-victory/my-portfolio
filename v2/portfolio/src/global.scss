@@ -41,3 +41,9 @@ ion-content {
     background-color: transparent;
   }
 }
+
+@media all and (max-height: 500px) and (orientation: landscape) {
+  .radius {
+    border-radius: 0 !important;
+  }
+}

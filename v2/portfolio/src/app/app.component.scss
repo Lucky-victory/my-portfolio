@@ -233,7 +233,7 @@ ion-tab-button {
   &.tab-selected {
     &:nth-child(2) {
       ~ .indicator {
-        --indicator-translate: 7px;
+        --indicator-translate: 9px;
         transform: translateX(
           calc(($indicator-width * 2) + var(--indicator-translate))
         );
@@ -241,7 +241,7 @@ ion-tab-button {
     }
     &:nth-child(3) {
       ~ .indicator {
-        --indicator-translate: 30px;
+        --indicator-translate: 32px;
         transform: translateX(
           calc(($indicator-width * 3) + var(--indicator-translate))
         );
