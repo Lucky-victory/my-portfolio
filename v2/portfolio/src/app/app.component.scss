@@ -134,13 +134,13 @@ ion-tab-bar {
   background: var(--color);
 }
 .tabs-inner {
-  position: relative;
+  // position: relative;
   background-color: var(--ion-color-step-150, #fff);
   width: 100%;
   height: auto;
-  padding: 0 1rem;
+  // padding: 0 1rem;
   border-radius: 15px;
-  --indicator-translate: 20px;
+  --indicator-translate: 50px;
 
   box-shadow: $bx-shadow;
   .icon {
@@ -188,19 +188,26 @@ ion-tab-bar {
 }
 .tabs-buttons-wrapper {
   width: 100%;
-  max-width: 400px;
+  max-width: 390px !important;
   position: relative;
   // background: #6f6;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  margin: auto;
+  gap: 24px;
+  justify-content: center;
+  flex: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 ion-tab-button {
   background-color: inherit;
   margin: 0;
-  flex-grow: 0;
+  flex: 0;
   flex-shrink: 0;
+  width: 70px;
+  height: 100%;
+  // background-color: #675;
+
   &::part(native) {
     padding: 0;
     overflow: visible;
@@ -226,13 +233,15 @@ ion-tab-button {
   &.tab-selected {
     &:nth-child(2) {
       ~ .indicator {
+        --indicator-translate: 7px;
         transform: translateX(
-          calc(($indicator-width * 2) - var(--indicator-translate))
+          calc(($indicator-width * 2) + var(--indicator-translate))
         );
       }
     }
     &:nth-child(3) {
       ~ .indicator {
+        --indicator-translate: 30px;
         transform: translateX(
           calc(($indicator-width * 3) + var(--indicator-translate))
         );
@@ -241,46 +250,54 @@ ion-tab-button {
     .icon {
       transition: transform 0.4s;
       transform: translateY(-30px);
+      color: #fff;
     }
 
     &.home {
+      ~ .indicator {
+        background-color: $home-tab-bg;
+      }
       &::part(native) {
         color: $home-tab-bg;
-        background-color: rgba($color: $home-tab-bg, $alpha: $tab-bg-opacity);
       }
     }
     &.projects {
+      ~ .indicator {
+        background-color: $projects-tab-bg;
+      }
       &::part(native) {
         color: $projects-tab-bg;
-        background-color: rgba(
-          $color: $projects-tab-bg,
-          $alpha: $tab-bg-opacity
-        );
       }
     }
     &.contact {
+      ~ .indicator {
+        background-color: $contact-tab-bg;
+      }
       &::part(native) {
         color: $contact-tab-bg;
-        background-color: rgba(
-          $color: $contact-tab-bg,
-          $alpha: $tab-bg-opacity
-        );
       }
     }
     ion-label {
       opacity: 1;
       transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
       transform: translateY(0);
+      margin-top: 1.5rem;
     }
   }
 }
 
-@media all and (max-width: 340px) {
+@media all and (max-width: 350px) {
   .tabs-buttons-wrapper {
-    --indicator-translate: 17px;
     .tab-selected {
+      &:nth-child(1) {
+        ~ .indicator {
+          --indicator-translate: 25px;
+          transform: translateX(var(--indicator-translate));
+        }
+      }
       &:nth-child(2) {
         ~ .indicator {
+          --indicator-translate: 15px;
           transform: translateX(
             calc(($indicator-width * 2) - var(--indicator-translate))
           );
@@ -288,6 +305,93 @@ ion-tab-button {
       }
       &:nth-child(3) {
         ~ .indicator {
+          --indicator-translate: 6px;
+          transform: translateX(
+            calc(($indicator-width * 3) + var(--indicator-translate))
+          );
+        }
+      }
+    }
+  }
+}
+@media all and (min-width: 365px) and (max-width: 374px) {
+  .tabs-buttons-wrapper {
+    .tab-selected {
+      &:nth-child(1) {
+        ~ .indicator {
+          --indicator-translate: 55px;
+          transform: translateX(var(--indicator-translate));
+        }
+      }
+      &:nth-child(2) {
+        ~ .indicator {
+          --indicator-translate: 12px;
+          transform: translateX(
+            calc(($indicator-width * 2) + var(--indicator-translate))
+          );
+        }
+      }
+      &:nth-child(3) {
+        ~ .indicator {
+          --indicator-translate: 35px;
+          transform: translateX(
+            calc(($indicator-width * 3) + var(--indicator-translate))
+          );
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 375px) {
+  .tabs-buttons-wrapper {
+    .tab-selected {
+      &:nth-child(1) {
+        ~ .indicator {
+          --indicator-translate: 60px;
+          transform: translateX(var(--indicator-translate));
+        }
+      }
+      &:nth-child(2) {
+        ~ .indicator {
+          --indicator-translate: 18px;
+          transform: translateX(
+            calc(($indicator-width * 2) + var(--indicator-translate))
+          );
+        }
+      }
+      &:nth-child(3) {
+        ~ .indicator {
+          --indicator-translate: 40px;
+          transform: translateX(
+            calc(($indicator-width * 3) + var(--indicator-translate))
+          );
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 385px) {
+  .tabs-buttons-wrapper {
+    .tab-selected {
+      &:nth-child(1) {
+        ~ .indicator {
+          --indicator-translate: 65px;
+          transform: translateX(var(--indicator-translate));
+        }
+      }
+      &:nth-child(2) {
+        ~ .indicator {
+          --indicator-translate: 23px;
+          transform: translateX(
+            calc(($indicator-width * 2) + var(--indicator-translate))
+          );
+        }
+      }
+      &:nth-child(3) {
+        ~ .indicator {
+          --indicator-translate: 45px;
           transform: translateX(
             calc(($indicator-width * 3) + var(--indicator-translate))
           );
