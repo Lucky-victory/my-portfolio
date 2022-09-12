@@ -400,3 +400,32 @@ ion-tab-button {
     }
   }
 }
+
+@media all and (min-width: 395px) {
+  .tabs-buttons-wrapper {
+    .tab-selected {
+      &:nth-child(1) {
+        ~ .indicator {
+          --indicator-translate: 70px;
+          transform: translateX(var(--indicator-translate));
+        }
+      }
+      &:nth-child(2) {
+        ~ .indicator {
+          --indicator-translate: 28px;
+          transform: translateX(
+            calc(($indicator-width * 2) + var(--indicator-translate))
+          );
+        }
+      }
+      &:nth-child(3) {
+        ~ .indicator {
+          --indicator-translate: 50px;
+          transform: translateX(
+            calc(($indicator-width * 3) + var(--indicator-translate))
+          );
+        }
+      }
+    }
+  }
+}
