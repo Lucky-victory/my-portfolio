@@ -224,12 +224,12 @@ ion-tab-button {
     // height: auto;
     &:nth-child(2) {
       ~ .indicator {
-        transform: translateX(calc(80px * 2));
+        transform: translateX(calc(90px * 2));
       }
     }
     &:nth-child(3) {
       ~ .indicator {
-        transform: translateX(calc(80px * 3));
+        transform: translateX(calc(90px * 3));
       }
     }
     .icon {
