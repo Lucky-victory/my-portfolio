@@ -43,17 +43,20 @@
   <ion-tabs *ngIf="showTabs" class="tabs-container">
     <ion-tab-bar slot="bottom" [translucent]="true">
       <div class="tabs-inner">
-        <ion-tab-button
-          *ngFor="let page of pages"
-          [tab]="page.url"
-          [ngClass]="page.className"
-        >
-          <span class="icon">
-            <ion-icon [name]="page.icon?.name"></ion-icon>
-          </span>
-          <ion-label>{{ page.title }}</ion-label>
-        </ion-tab-button>
-        <div class="indicator"></div>
+        <div class="tabs-buttons-wrapper">
+          <ion-tab-button
+            #tabButton
+            *ngFor="let page of pages"
+            [tab]="page.url"
+            [ngClass]="page.className"
+          >
+            <span class="icon">
+              <ion-icon [name]="page.icon?.name"></ion-icon>
+            </span>
+            <ion-label>{{ page.title }}</ion-label>
+          </ion-tab-button>
+          <div class="indicator" id="indicator"></div>
+        </div>
       </div>
     </ion-tab-bar>
   </ion-tabs>

@@ -1,6 +1,13 @@
-import { Component, OnDestroy } from '@angular/core';
-import { MenuController, Platform } from '@ionic/angular';
-import { BehaviorSubject, Subject, Subscription } from 'rxjs';
+import {
+  Component,
+  OnDestroy,
+  QueryList,
+  ViewChildren,
+  ElementRef,
+  AfterViewInit,
+} from '@angular/core';
+import { Platform } from '@ionic/angular';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +15,11 @@ import { BehaviorSubject, Subject, Subscription } from 'rxjs';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnDestroy {
-  isMobile: boolean;
-  isCurrent: boolean = false;
   showTabs: boolean = false;
   isFullNav: boolean = false;
   resizeSub: Subscription;
   isLargeScreen: boolean = false;
+
   pages = [
     {
       title: 'home',
@@ -44,32 +50,25 @@ export class AppComponent implements OnDestroy {
     },
   ];
   screenSizes = {
-    sm: 574,
+    sm: 575,
     md: 768,
     lg: 1124,
     xl: 1300,
   };
 
-  constructor(private platform: Platform, private menuCtrl: MenuController) {
-    this.isMobile = platform.is('mobile');
+  constructor(private platform: Platform) {
     let screenWidth = platform.width();
-    this.showTabs = screenWidth < this.screenSizes.sm;
+    this.showTabs = screenWidth <= this.screenSizes.sm;
     this.isLargeScreen = screenWidth > this.screenSizes.xl;
     this.isFullNav = this.isLargeScreen;
     this.resizeSub = platform.resize.subscribe(() => {
       screenWidth = platform.width();
-      this.showTabs = screenWidth < this.screenSizes.sm;
+      this.showTabs = screenWidth <= this.screenSizes.sm;
       this.isLargeScreen = screenWidth > this.screenSizes.xl;
       this.isFullNav = this.isLargeScreen;
     });
   }
-  async ionViewDidEnter() {
-    await this.menuCtrl.enable(true, 'main-menu');
-    await this.menuCtrl.open('main-menu');
-  }
-  addAnimationClass() {
-    this.isCurrent = true;
-  }
+
   hideFullNav() {
     if (this.isLargeScreen) return;
     this.isFullNav = false;
