@@ -11,20 +11,15 @@
         </div>
         <div class="banner-content">
           <h2 class="heading">
-            Hello, I'm <span class="my-name"> Victory Lucky </span>
+            Hello, I'm <span class="my-name"> Lucky Victory </span>
           </h2>
           <div class="swiper-container">
-            <swiper
-              class="info-swiper"
-              [direction]="'vertical'"
-              [spaceBetween]="15"
-              [autoplay]="{delay:1000}"
-            >
-              <ng-template swiperSlide="" data-swiper-autoplay="2000">
+            <swiper #infoSwiper [config]="swiperConfig" class="info-swiper">
+              <ng-template swiperSlide="">
                 <div class="swiper-content">web Developer</div>
               </ng-template>
-              <ng-template swiperSlide="" data-swiper-autoplay="2000">
-                <div class="swiper-content">mobile</div>
+              <ng-template swiperSlide="">
+                <div class="swiper-content">mobile developer</div>
               </ng-template>
             </swiper>
           </div>

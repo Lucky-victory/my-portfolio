@@ -1,11 +1,19 @@
 $banner-bg: #ef823d;
 
-swiper.info-swiper {
-  height: 70px;
+.swiper-cube .swiper-cube-shadow:before {
+  opacity: 0 !important;
+}
+.swiper {
+  height: 60px;
   padding: 0.51rem;
-
+  padding-left: 0;
+  .swiper-slide {
+    justify-content: flex-start !important;
+  }
   .swiper-content {
     font-size: 1.5rem;
+    height: 100%;
+
     text-transform: uppercase;
   }
 }

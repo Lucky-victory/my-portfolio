@@ -1,17 +1,25 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { IonicSlides, Platform } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { slideInOutAnimation } from 'src/app/helpers/animations/slide-in-out';
-import SwiperCore, { Autoplay } from 'swiper';
+import SwiperCore, { Autoplay, EffectCube, SwiperOptions } from 'swiper';
 
-SwiperCore.use([Autoplay, IonicSlides]);
+import { SwiperComponent } from 'swiper/angular';
+
+SwiperCore.use([Autoplay, EffectCube, IonicSlides]);
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   animations: [slideInOutAnimation],
 })
-export class HomePage implements OnInit, OnDestroy {
+export class HomePage implements OnDestroy, AfterViewInit {
   showTabs: boolean = false;
   screenSizes = {
     sm: 574,
@@ -19,6 +27,18 @@ export class HomePage implements OnInit, OnDestroy {
     lg: 1124,
   };
   resizeSub: Subscription;
+  swiperConfig: SwiperOptions = {
+    direction: 'vertical',
+    loop: true,
+    effect: 'cube',
+    noSwiping: true,
+    noSwipingClass: 'swiper-content',
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+    },
+  };
+  @ViewChild('infoSwiper') infoSwiper: SwiperComponent;
   constructor(private platform: Platform) {
     let screenWidth = platform.width();
     this.showTabs = screenWidth < this.screenSizes.sm;
@@ -28,8 +48,12 @@ export class HomePage implements OnInit, OnDestroy {
       this.showTabs = screenWidth < this.screenSizes.sm;
     });
   }
-  ngOnInit() {}
 
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.infoSwiper.swiperRef.autoplay.start();
+    }, 1000);
+  }
   ngOnDestroy(): void {
     this.resizeSub.unsubscribe();
   }

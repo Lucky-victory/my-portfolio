@@ -31,10 +31,9 @@
 @import "~swiper/scss/pagination";
 @import "~swiper/scss/scrollbar";
 @import "~swiper/scss/zoom";
-@import "~swiper/scss/effect-cards";
-@import "~swiper/scss/effect-flip";
 @import "~swiper/scss/effect-cube";
-@import "~@ionic/angular/css/ionic-swiper";
+
+// @import "~@ionic/angular/css/ionic-swiper";
 
 ion-content {
   &::part(background) {
@@ -42,6 +41,9 @@ ion-content {
   }
 }
 
+* {
+  font-family: var(--font-one);
+}
 @media all and (max-height: 500px) and (orientation: landscape) {
   .radius {
     border-radius: 0 !important;
