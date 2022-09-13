@@ -53,7 +53,7 @@ export class AppComponent implements OnDestroy {
     sm: 575,
     md: 768,
     lg: 1124,
-    xl: 1300,
+    xl: 1200,
   };
 
   constructor(private platform: Platform) {

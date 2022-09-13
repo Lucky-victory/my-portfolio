@@ -1,36 +1,46 @@
 <ion-content [fullscreen]="true">
   <div class="inner-container" [ngClass]="{radius:!showTabs}">
     <div class="banner">
-      <div class="banner-image-wrapper">
-        <img
-          src="assets/images/my-pics-trans.png"
-          alt=""
-          class="banner-image"
-        />
-      </div>
-      <div class="banner-content">
-        <h2>Hello, I'm <span class="my-name"> Victory Lucky </span></h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam
-          delectus praesentium eos fugit, quibusdam tempora explicabo eligendi
-          dolorem, eaque sapiente rem temporibus eius perspiciatis quasi
-          possimus nostrum aliquid, laboriosam totam. Lorem ipsum dolor sit,
-          amet consectetur adipisicing elit. Expedita distinctio aliquid earum
-          quo nobis eaque enim? Blanditiis molestias corrupti alias dolor
-          sapiente soluta rerum, esse laudantium numquam. Esse laborum doloribus
-          quibusdam voluptatem assumenda vitae, numquam animi, laudantium
-          tempore commodi quasi et? Beatae repellendus, tempora veritatis
-          incidunt maiores facilis, modi velit debitis deleniti totam laborum.
-          Aperiam saepe a nobis, quis eveniet, voluptatibus laudantium atque aut
-          commodi deleniti quod perspiciatis est tempore temporibus earum labore
-          dignissimos consequatur cumque, corporis hic esse iure! Ipsa magnam
-          reiciendis, dolore, fuga temporibus cum perferendis non deserunt nobis
-          sed laudantium accusantium nisi consectetur ut in blanditiis
-          repudiandae. Veritatis qui ipsa quo incidunt eos. Expedita hic quia
-          illum nobis suscipit ipsum. Veritatis, voluptatum dolore voluptatem
-          quibusdam expedita velit molestiae cupiditate optio magnam, odit
-          dolores, voluptatibus illo mollitia a quos asperiores eum ullam. Amet
-        </p>
+      <div class="banner-inner">
+        <div class="banner-image-wrapper">
+          <img
+            src="assets/images/my-pics-trans.png"
+            alt=""
+            class="banner-image"
+          />
+        </div>
+        <div class="banner-content">
+          <h2 class="heading">
+            Hello, I'm <span class="my-name"> Victory Lucky </span>
+          </h2>
+          <div class="swiper-container">
+            <swiper
+              class="info-swiper"
+              [direction]="'vertical'"
+              [spaceBetween]="15"
+              [autoplay]="{delay:1000}"
+            >
+              <ng-template swiperSlide="" data-swiper-autoplay="2000">
+                <div class="swiper-content">web</div>
+              </ng-template>
+              <ng-template swiperSlide="" data-swiper-autoplay="2000">
+                <div class="swiper-content">mobile</div>
+              </ng-template>
+            </swiper>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ullam
+            delectus praesentium eos fugit, quibusdam tempora explicabo eligendi
+            dolorem, eaque sapiente rem temporibus eius perspiciatis quasi
+            possimus nostrum aliquid, laboriosam totam. Lorem ipsum dolor sit,
+            amet consectetur adipisicing elit. Expedita distinctio aliquid earum
+            quo nobis eaque enim? Blanditiis molestias corrupti alias dolor
+            sapiente soluta rerum, esse laudantium numquam. Esse laborum
+            doloribus quibusdam voluptatem assumenda vitae, numquam animi,
+            laudantium tempore commodi quasi et? Beatae repellendus, tempora
+            veritatis incidunt maiores facilis, modi velit debitis deleniti
+          </p>
+        </div>
       </div>
     </div>
   </div>

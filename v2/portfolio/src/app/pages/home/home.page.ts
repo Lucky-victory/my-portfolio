@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
+import { IonicSlides, Platform } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import { slideInOutAnimation } from 'src/app/helpers/animations/slide-in-out';
+import SwiperCore, { Autoplay } from 'swiper';
 
+SwiperCore.use([Autoplay, IonicSlides]);
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',

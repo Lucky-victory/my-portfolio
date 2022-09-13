@@ -12,15 +12,9 @@ import {
   IonicSlides,
 } from '@ionic/angular';
 import { Subscription } from 'rxjs';
-import SwiperCore, {
-  Autoplay,
-  Keyboard,
-  Pagination,
-  Scrollbar,
-  Zoom,
-} from 'swiper';
+import SwiperCore, { Autoplay, Keyboard, Pagination, Zoom } from 'swiper';
 
-SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom, IonicSlides]);
+SwiperCore.use([Autoplay, Keyboard, Pagination, Zoom, IonicSlides]);
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.page.html',

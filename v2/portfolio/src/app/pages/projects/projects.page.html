@@ -1,10 +1,10 @@
 <ion-content [scrollX]="true" [fullscreen]="true">
   <div class="inner-container" [ngClass]="{radius:!showTabs}">
     <swiper
-      [autoplay]="true"
+      [autoplay]="{delay:2000}"
       [keyboard]="true"
       [pagination]="{clickable:true}"
-      [zoom]="true"
+      [navigation]="true"
       [loop]="true"
       [slidesPerView]="slidesPerView"
       [spaceBetween]="15"

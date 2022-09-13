@@ -6,12 +6,17 @@ $contact-tab-bg: #6a60f5;
 $bg-opacity: 1;
 $tab-bg-opacity: 0.4;
 $bx-shadow: -1px 2px 7px rgba(0, 0, 0, 0.35);
-$tab-btn-bx-shadow: -1px 2px 8px rgba(0, 0, 0, 0.1);
+
 $indicator-width: 65px;
 ion-split-pane.main-container {
-  background: var(--background);
+  // background: var(--background);
   max-width: var(--max-main-container-width, 1400px);
   margin: 0 auto;
+}
+ion-buttons {
+  .menu-button {
+    margin-left: 1rem;
+  }
 }
 ion-menu.main-menu {
   --min-nav-width: 70px;
@@ -19,21 +24,22 @@ ion-menu.main-menu {
   --side-min-width: var(--min-nav-width);
   --side-max-width: 250px;
   --side-width: var(--min-nav-width);
-  --background: transparent;
-  --border: none !important;
-  transition: 0.5s ease-in-out;
 
+  --border: none !important;
+  transition: 0.4s ease-in-out;
+  &::part(container) {
+    padding-top: 1rem;
+    background-color: var(--ion-color-step-150, var(--primary-bg));
+  }
   &.full {
     --side-width: 200px;
+    ion-item {
+      ion-label {
+        opacity: 1;
+        transition: 0.4s ease-in-out;
+      }
+    }
   }
-}
-ion-button.menu-button {
-  &::part(native) {
-    margin-left: 1rem;
-  }
-}
-ion-toolbar {
-  --background: transparent;
 }
 
 ion-list {
@@ -46,8 +52,11 @@ ion-list {
   position: relative;
 
   &.active {
-    color: #fff;
-    --background-hover: #fff;
+    // color: #fff;
+    background-color: var(--background);
+    // background-color: #fe4;
+    // --background: var(--background, #fff);
+    // --background-hover: #fff;
     &::before {
       content: "";
       position: absolute;
@@ -57,6 +66,7 @@ ion-list {
       right: 0;
       top: -30px;
       border-radius: 50%;
+      box-shadow: 15px 15px 0 var(--background);
     }
     &:after {
       content: "";
@@ -64,40 +74,13 @@ ion-list {
       width: 30px;
       height: 30px;
 
+      box-shadow: 15px -15px 0 var(--background);
       right: 0;
       bottom: -30px;
       border-radius: 50%;
     }
-    &.home {
-      &::before {
-        box-shadow: 15px 15px 0 $home-tab-bg;
-      }
 
-      &::after {
-        box-shadow: 15px -15px 0 $home-tab-bg;
-      }
-      background-color: rgba($color: $home-tab-bg, $alpha: $bg-opacity);
-    }
-    &.projects {
-      &::before {
-        box-shadow: 15px 15px 0 $projects-tab-bg;
-      }
-
-      &::after {
-        box-shadow: 15px -15px 0 $projects-tab-bg;
-      }
-      background-color: rgba($color: $projects-tab-bg, $alpha: $bg-opacity);
-    }
-    &.contact {
-      &::before {
-        box-shadow: 15px 15px 0 $contact-tab-bg;
-      }
-
-      &::after {
-        box-shadow: 15px -15px 0 $contact-tab-bg;
-      }
-      background-color: rgba($color: $contact-tab-bg, $alpha: $bg-opacity);
-    }
+    // background-color: rgba($color: $contact-tab-bg, $alpha: $bg-opacity);
   }
 }
 ion-item.menu-button {
@@ -108,17 +91,19 @@ ion-item.menu-button {
   overflow: visible;
   color: inherit;
   height: auto;
+  width: auto;
+  // --background: transparent;
   &:hover {
     color: currentColor;
   }
-  --background: transparent;
   ion-icon {
     color: inherit;
-    margin-right: 0.5rem;
   }
   ion-label {
     color: inherit;
     margin-left: 1rem;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
     text-transform: capitalize;
   }
 }
@@ -131,14 +116,12 @@ ion-tab-bar {
   padding-top: 1.75rem;
   height: $tab-bar-height;
   overflow: visible;
-  background: var(--color);
+  background: var(--background);
 }
 .tabs-inner {
-  // position: relative;
-  background-color: var(--ion-color-step-150, #fff);
+  background-color: var(--ion-color-step-150, var(--primary-bg));
   width: 100%;
   height: auto;
-  // padding: 0 1rem;
   border-radius: 15px;
   --indicator-translate: 50px;
 
@@ -158,8 +141,8 @@ ion-tab-bar {
     top: -50%;
     left: 0;
     border-radius: 50%;
-    background-color: #fe4;
-    border: 6px solid var(--color);
+    background-color: var(--primary-bg);
+    border: 6px solid var(--background);
     transform: translateX(var(--indicator-translate));
     transition: 0.4s;
   }
@@ -172,7 +155,7 @@ ion-tab-bar {
     top: 50%;
     background: transparent !important;
     border-top-right-radius: 20px;
-    box-shadow: 1px -10px 0 var(--color);
+    box-shadow: 1px -10px 0 var(--background);
   }
   .indicator::after {
     content: "";
@@ -183,7 +166,7 @@ ion-tab-bar {
     top: 50%;
     background: transparent !important;
     border-top-left-radius: 20px;
-    box-shadow: -1px -10px 0 var(--color);
+    box-shadow: -1px -10px 0 var(--background);
   }
 }
 .tabs-buttons-wrapper {
@@ -253,30 +236,6 @@ ion-tab-button {
       color: #fff;
     }
 
-    &.home {
-      ~ .indicator {
-        background-color: $home-tab-bg;
-      }
-      &::part(native) {
-        color: $home-tab-bg;
-      }
-    }
-    &.projects {
-      ~ .indicator {
-        background-color: $projects-tab-bg;
-      }
-      &::part(native) {
-        color: $projects-tab-bg;
-      }
-    }
-    &.contact {
-      ~ .indicator {
-        background-color: $contact-tab-bg;
-      }
-      &::part(native) {
-        color: $contact-tab-bg;
-      }
-    }
     ion-label {
       opacity: 1;
       transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -286,18 +245,18 @@ ion-tab-button {
   }
 }
 
-@media all and (max-width: 350px) {
+@media all and (max-width: 330px) {
   .tabs-buttons-wrapper {
     .tab-selected {
       &:nth-child(1) {
         ~ .indicator {
-          --indicator-translate: 25px;
+          --indicator-translate: 34px;
           transform: translateX(var(--indicator-translate));
         }
       }
       &:nth-child(2) {
         ~ .indicator {
-          --indicator-translate: 15px;
+          --indicator-translate: 8px;
           transform: translateX(
             calc(($indicator-width * 2) - var(--indicator-translate))
           );
@@ -305,7 +264,36 @@ ion-tab-button {
       }
       &:nth-child(3) {
         ~ .indicator {
-          --indicator-translate: 6px;
+          --indicator-translate: 15px;
+          transform: translateX(
+            calc(($indicator-width * 3) + var(--indicator-translate))
+          );
+        }
+      }
+    }
+  }
+}
+
+@media all and (min-width: 331px) and (max-width: 350px) {
+  .tabs-buttons-wrapper {
+    .tab-selected {
+      &:nth-child(1) {
+        ~ .indicator {
+          --indicator-translate: 45px;
+          transform: translateX(var(--indicator-translate));
+        }
+      }
+      &:nth-child(2) {
+        ~ .indicator {
+          --indicator-translate: 5px;
+          transform: translateX(
+            calc(($indicator-width * 2) + var(--indicator-translate))
+          );
+        }
+      }
+      &:nth-child(3) {
+        ~ .indicator {
+          --indicator-translate: 30px;
           transform: translateX(
             calc(($indicator-width * 3) + var(--indicator-translate))
           );
