@@ -1,7 +1,7 @@
 $banner-bg: #ef823d;
 
-.swiper-cube .swiper-cube-shadow:before {
-  opacity: 0 !important;
+.swiper-cube-shadow {
+  display: none !important;
 }
 .swiper {
   height: 60px;

@@ -19,7 +19,7 @@ SwiperCore.use([Autoplay, EffectCube, IonicSlides]);
   styleUrls: ['./home.page.scss'],
   animations: [slideInOutAnimation],
 })
-export class HomePage implements OnDestroy, AfterViewInit {
+export class HomePage implements OnDestroy {
   showTabs: boolean = false;
   screenSizes = {
     sm: 574,
@@ -49,7 +49,7 @@ export class HomePage implements OnDestroy, AfterViewInit {
     });
   }
 
-  ngAfterViewInit(): void {
+  ionViewDidEnter(): void {
     setTimeout(() => {
       this.infoSwiper.swiperRef.autoplay.start();
     }, 1000);

@@ -93,9 +93,9 @@ ion-item.menu-button {
   height: auto;
   width: auto;
   // --background: transparent;
-  &:hover {
-    color: currentColor;
-  }
+  --ripple-color: transparent;
+  --background-hover: transparent;
+
   ion-icon {
     color: inherit;
   }
