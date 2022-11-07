@@ -1,39 +1,46 @@
 <ion-content [scrollX]="true" [fullscreen]="true">
-  <div class="inner-container" [ngClass]="{radius:!showTabs}">
+  <div class="inner-container">
     <swiper
-      [autoplay]="{delay:2000}"
       [keyboard]="true"
-      [pagination]="{clickable:true}"
       [navigation]="true"
+      [pagination]="{clickable:true}"
       [loop]="true"
       [slidesPerView]="slidesPerView"
       [spaceBetween]="15"
+      class="cards-swiper"
     >
-      <ng-template swiperSlide>
+      <ng-template
+        swiperSlide
+        class="swiper-slide-card"
+        *ngFor="let project of projects"
+      >
         <div class="card">
           <div class="card-image-wrapper">
-            <img
-              src="assets/images/screely-1662845944228.png"
-              alt=""
-              class="card-image"
-            />
+            <img [src]="project.image" alt="" class="card-image" />
           </div>
           <div class="card-content">
-            <ion-button fill="outline">
-              <ion-icon slot="start" name="logo-github"></ion-icon>
-              source
-            </ion-button>
-            <ion-button>
-              <ion-icon slot="start" name="globe-sharp"></ion-icon>
-              view live
-            </ion-button>
+            <div class="card-content-top">
+              <h2 class="card-title">{{project.title}}</h2>
+            </div>
+            <p class="card-content-desc">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
+              fugit quaerat labore nihil ratione beatae?
+            </p>
+            <div class="btns-container">
+              <ion-buttons>
+                <ion-button>
+                  <ion-icon slot="start" name="logo-github"></ion-icon>
+                  source
+                </ion-button>
+                <ion-button>
+                  <ion-icon slot="start" name="globe-sharp"></ion-icon>
+                  view live
+                </ion-button>
+              </ion-buttons>
+            </div>
           </div>
         </div>
       </ng-template>
-      <ng-template swiperSlide>
-        <div class="card">Slide 2</div>
-      </ng-template>
-      <ng-template swiperSlide><div class="card">Slide 3</div> </ng-template>
     </swiper>
   </div>
 </ion-content>

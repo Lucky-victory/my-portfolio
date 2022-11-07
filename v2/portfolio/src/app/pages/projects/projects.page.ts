@@ -12,9 +12,9 @@ import {
   IonicSlides,
 } from '@ionic/angular';
 import { Subscription } from 'rxjs';
-import SwiperCore, { Autoplay, Keyboard, Pagination, Zoom } from 'swiper';
+import SwiperCore, { Keyboard, Pagination, Navigation, Zoom } from 'swiper';
 
-SwiperCore.use([Autoplay, Keyboard, Pagination, Zoom, IonicSlides]);
+SwiperCore.use([Keyboard, Navigation, Pagination, Zoom, IonicSlides]);
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.page.html',
@@ -24,9 +24,30 @@ export class ProjectsPage implements OnInit, OnDestroy {
   animation: Animation;
   slidesPerView: number = 1;
   showTabs: boolean = false;
+  projects = [
+    {
+      title: 'Photo App',
+      image: 'assets/images/screely-1667778440373.png',
+      gitUrl: '',
+      liveUrl: '',
+    },
+    {
+      title: 'Photo App',
+      image: 'assets/images/screely-1662845944228.png',
+      gitUrl: '',
+      liveUrl: '',
+    },
+
+    {
+      title: 'Photo App',
+      image: 'assets/images/screely-1662845944228.png',
+      gitUrl: '',
+      liveUrl: '',
+    },
+  ];
   screenSizes = {
     sm: 574,
-    md: 768,
+    md: 964,
     lg: 1124,
   };
   @ViewChild('content') ionContent: ElementRef<HTMLDivElement>;
@@ -36,17 +57,17 @@ export class ProjectsPage implements OnInit, OnDestroy {
     private platform: Platform
   ) {
     let screenWidth = platform.width();
-    this.showTabs = screenWidth < this.screenSizes.sm;
+    this.showTabs = screenWidth <= this.screenSizes.sm;
 
     this.resizeSub = platform.resize.subscribe(() => {
       screenWidth = platform.width();
-      this.showTabs = screenWidth < this.screenSizes.sm;
+      this.showTabs = screenWidth <= this.screenSizes.sm;
       if (screenWidth < this.screenSizes.md) this.slidesPerView = 1;
       if (screenWidth > this.screenSizes.md) this.slidesPerView = 2;
-      if (screenWidth > this.screenSizes.lg) this.slidesPerView = 3;
+      // if (screenWidth > this.screenSizes.lg) this.slidesPerView = 3;
     });
     if (screenWidth > this.screenSizes.md) this.slidesPerView = 2;
-    if (screenWidth > this.screenSizes.lg) this.slidesPerView = 3;
+    // if (screenWidth > this.screenSizes.lg) this.slidesPerView = 3;
   }
   ionViewDidEnter() {
     this.animation = this.animationCtrl.create();

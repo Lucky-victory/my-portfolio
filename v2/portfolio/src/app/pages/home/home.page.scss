@@ -35,7 +35,7 @@ $banner-bg: #ef823d;
   border-radius: 10px;
 
   background-color: var(--background);
-  // align-items: center;
+  align-items: center;
   // flex-wrap: wrap;
   // border-radius: inherit;
   // background: $banner-bg;
@@ -56,37 +56,33 @@ $banner-bg: #ef823d;
   width: 100%;
   max-width: 380px;
   margin: 1rem auto;
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
   box-shadow: 2px 3px 7px rgba(0, 0, 0, 0.4);
+  padding: 1.5em;
+  background: var(--primary-bg);
 }
-.banner-image-wrapper::before {
-  content: "";
-  width: 280px;
-  height: 280px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #bb7f4c;
 
-  border-radius: 50%;
-}
 .banner-image {
   position: relative;
   height: 100%;
   max-width: 100%;
   object-fit: cover;
+  border-radius: inherit;
+  background: var(--orange);
 }
 .banner-content {
   padding: 1rem;
+  padding-top: 0;
   line-height: 1.2;
   border-radius: 10px 10px 0 0;
-  padding-top: 0;
   z-index: 2;
   position: relative;
   max-width: 500px;
+  flex: 1;
+  min-width: 300px;
+  width: 100%;
 }
 .my-name {
-  color: $banner-bg;
+  color: var(--orange);
 }

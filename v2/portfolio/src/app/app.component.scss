@@ -29,7 +29,7 @@ ion-menu.main-menu {
   transition: 0.4s ease-in-out;
   &::part(container) {
     padding-top: 1rem;
-    background-color: var(--ion-color-step-150, var(--primary-bg));
+    background-color: var(--ion-color-step-150, var(--ion-color-light-shade));
   }
   &.full {
     --side-width: 200px;
@@ -119,7 +119,7 @@ ion-tab-bar {
   background: var(--background);
 }
 .tabs-inner {
-  background-color: var(--ion-color-step-150, var(--primary-bg));
+  background-color: var(--ion-color-light-tint);
   width: 100%;
   height: auto;
   border-radius: 15px;
@@ -141,7 +141,7 @@ ion-tab-bar {
     top: -50%;
     left: 0;
     border-radius: 50%;
-    background-color: var(--primary-bg);
+    background-color: var(--orange, var(--ion-color-light-shade));
     border: 6px solid var(--background);
     transform: translateX(var(--indicator-translate));
     transition: 0.4s;
@@ -214,6 +214,30 @@ ion-tab-button {
     transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   }
   &.tab-selected {
+    &.home {
+      &::part(native) {
+        color: var(--orange);
+      }
+      ~ .indicator {
+        background-color: var(--orange);
+      }
+    }
+    &.projects {
+      &::part(native) {
+        color: var(--green);
+      }
+      ~ .indicator {
+        background-color: var(--green);
+      }
+    }
+    &.contact {
+      ~ .indicator {
+        background-color: var(--french-blue);
+      }
+      &::part(native) {
+        color: var(--french-blue);
+      }
+    }
     &:nth-child(2) {
       ~ .indicator {
         --indicator-translate: 9px;

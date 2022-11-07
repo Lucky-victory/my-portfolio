@@ -8,12 +8,18 @@
   */
   --font-one: "KoHo", sans-serif;
   --font-two: "Raleway", sans-serif;
+  --font-three: "Kumbh Sans", sans-serif;
   --bg-radius: 20px 0 0 20px;
   --bg-opacity: 0.4;
   --max-main-container-width: 1400px;
-  --primary-bg: #ed8034;
-  --primary-bg-light: rgba(239, 130, 61, var(--bg-opacity));
-  --projects-bg: #04be9f;
+  --french-blue: #0474ba;
+  --orange: #eb8540;
+  --orange-rgb: 237, 128, 67;
+  --primary-bg: #fff;
+  --primary-bg-light: rgba(255, 255, 255, var(--bg-opacity));
+  --green: #097685;
+  --green-rgb: 4, 190, 159;
+  --projects-bg: var(--green);
   --projects-bg-light: rgba(4, 190, 159, var(--bg-opacity));
   --contact-bg: #6a60f5;
   --contact-bg-light: rgba(106, 96, 245, var(--bg-opacity));
