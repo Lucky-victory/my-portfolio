@@ -13,16 +13,18 @@
   --bg-opacity: 0.4;
   --max-main-container-width: 1400px;
   --french-blue: #0474ba;
+  --french-blue-rgb: 4, 116, 186;
   --orange: #eb8540;
   --orange-rgb: 237, 128, 67;
+  --home-bg: var(--orange);
   --primary-bg: #fff;
   --primary-bg-light: rgba(255, 255, 255, var(--bg-opacity));
   --green: #097685;
   --green-rgb: 4, 190, 159;
   --projects-bg: var(--green);
   --projects-bg-light: rgba(4, 190, 159, var(--bg-opacity));
-  --contact-bg: #6a60f5;
-  --contact-bg-light: rgba(106, 96, 245, var(--bg-opacity));
+  --contact-bg: var(--french-blue);
+  --contact-bg-light: rgba(var(--french-blue-rgb), var(--bg-opacity));
 
   /** primary **/
   --ion-color-primary: #3880ff;

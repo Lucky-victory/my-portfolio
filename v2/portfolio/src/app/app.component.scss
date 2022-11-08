@@ -1,8 +1,6 @@
 $tab-width: 50px;
 $tab-bar-height: 70px;
-$home-tab-bg: #ef823d;
-$projects-tab-bg: #04be9f;
-$contact-tab-bg: #6a60f5;
+
 $bg-opacity: 1;
 $tab-bg-opacity: 0.4;
 $bx-shadow: -1px 2px 7px rgba(0, 0, 0, 0.35);
@@ -26,7 +24,7 @@ ion-menu.main-menu {
   --side-width: var(--min-nav-width);
 
   --border: none !important;
-  transition: 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
   &::part(container) {
     padding-top: 1rem;
     background-color: var(--ion-color-step-150, var(--ion-color-light-shade));
@@ -36,7 +34,7 @@ ion-menu.main-menu {
     ion-item {
       ion-label {
         opacity: 1;
-        transition: 0.4s ease-in-out;
+        transition: width 0.4s ease-in-out;
       }
     }
   }
@@ -52,11 +50,26 @@ ion-list {
   position: relative;
 
   &.active {
-    // color: #fff;
-    background-color: var(--background);
+    --item-bg: var(--background);
+    background-color: var(--item-bg);
     // background-color: #fe4;
     // --background: var(--background, #fff);
     // --background-hover: #fff;
+    color: #fff;
+    &.home {
+      --item-bg: var(--orange);
+
+      background-color: var(--orange);
+    }
+    &.projects {
+      --item-bg: var(--green);
+
+      background-color: var(--green);
+    }
+    &.contact {
+      --item-bg: var(--french-blue);
+      background-color: var(--french-blue);
+    }
     &::before {
       content: "";
       position: absolute;
@@ -66,7 +79,7 @@ ion-list {
       right: 0;
       top: -30px;
       border-radius: 50%;
-      box-shadow: 15px 15px 0 var(--background);
+      box-shadow: 15px 15px 0 var(--item-bg);
     }
     &:after {
       content: "";
@@ -74,7 +87,7 @@ ion-list {
       width: 30px;
       height: 30px;
 
-      box-shadow: 15px -15px 0 var(--background);
+      box-shadow: 15px -15px 0 var(--item-bg);
       right: 0;
       bottom: -30px;
       border-radius: 50%;
@@ -92,7 +105,9 @@ ion-item.menu-button {
   color: inherit;
   height: auto;
   width: auto;
-  // --background: transparent;
+  &::part(native) {
+    --color-hover: currentColor;
+  }
   --ripple-color: transparent;
   --background-hover: transparent;
 
@@ -107,6 +122,10 @@ ion-item.menu-button {
     text-transform: capitalize;
   }
 }
+
+/*
+// Style for mobile Tabs
+*/
 ion-tabs {
   transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -146,7 +165,7 @@ ion-tab-bar {
     transform: translateX(var(--indicator-translate));
     transition: 0.4s;
   }
-  .indicator::before {
+  &::before {
     content: "";
     position: absolute;
     width: 20px;
@@ -157,7 +176,7 @@ ion-tab-bar {
     border-top-right-radius: 20px;
     box-shadow: 1px -10px 0 var(--background);
   }
-  .indicator::after {
+  &::after {
     content: "";
     position: absolute;
     width: 20px;

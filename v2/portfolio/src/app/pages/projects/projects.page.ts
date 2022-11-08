@@ -64,10 +64,10 @@ export class ProjectsPage implements OnInit, OnDestroy {
       this.showTabs = screenWidth <= this.screenSizes.sm;
       if (screenWidth < this.screenSizes.md) this.slidesPerView = 1;
       if (screenWidth > this.screenSizes.md) this.slidesPerView = 2;
-      // if (screenWidth > this.screenSizes.lg) this.slidesPerView = 3;
+      if (screenWidth > this.screenSizes.lg) this.slidesPerView = 3;
     });
     if (screenWidth > this.screenSizes.md) this.slidesPerView = 2;
-    // if (screenWidth > this.screenSizes.lg) this.slidesPerView = 3;
+    if (screenWidth > this.screenSizes.lg) this.slidesPerView = 3;
   }
   ionViewDidEnter() {
     this.animation = this.animationCtrl.create();

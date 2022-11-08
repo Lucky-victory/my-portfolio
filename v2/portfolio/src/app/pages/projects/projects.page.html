@@ -12,9 +12,9 @@
       <ng-template
         swiperSlide
         class="swiper-slide-card"
-        *ngFor="let project of projects"
+        *ngFor="let project of projects;let i=index"
       >
-        <div class="card">
+        <div class="card" style="--index:{{i}}">
           <div class="card-image-wrapper">
             <img [src]="project.image" alt="" class="card-image" />
           </div>

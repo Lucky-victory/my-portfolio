@@ -47,8 +47,7 @@ ion-content {
 * {
   font-family: var(--font-three);
 }
-@media all and (max-height: 500px) and (orientation: landscape) {
-  .radius {
-    border-radius: 0 !important;
-  }
+
+.swiper-cube-shadow {
+  display: none !important;
 }
