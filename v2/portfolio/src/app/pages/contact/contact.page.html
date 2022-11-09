@@ -4,49 +4,65 @@
       <form class="contact-form">
         <h2>Let's Connect</h2>
         <p class="grey small">It would be a pleasure to work with you.</p>
-        <h4 class="">Project Type</h4>
+        <h4 class="">What Job would you like to hire me for?</h4>
         <ul class="contact-form-options-list">
           <li class="contact-form-options-item">
             <input
               type="radio"
+              name="project-type"
+              class="radio-input"
               checked
-              name="project-type"
-              class="radio-input"
-              id="contract"
+              id="{{jobTypes[0].id}}"
+              value="{{jobTypes[0].title}}"
             />
-            <label for="contract">contract</label>
+            <label for="{{jobTypes[0].id}}">{{jobTypes[0].title}}</label>
           </li>
-          <li class="contact-form-options-item">
+          <li
+            class="contact-form-options-item"
+            *ngFor="let jobType of leftJobTypes;"
+          >
             <input
               type="radio"
               name="project-type"
               class="radio-input"
-              id="part-time"
+              id="{{jobType.id}}"
+              value="{{jobType.title}}"
             />
-            <label for="part-time">part time</label>
-          </li>
-          <li class="contact-form-options-item">
-            <input
-              type="radio"
-              name="project-type"
-              class="radio-input"
-              id="full-time"
-            />
-            <label for="full-time">full time</label>
-          </li>
-          <li class="contact-form-options-item">
-            <input
-              type="radio"
-              name="project-type"
-              class="radio-input"
-              id="others"
-            />
-            <label for="others">others</label>
+            <label for="{{jobType.id}}">{{jobType.title}}</label>
           </li>
         </ul>
-        <ion-item detail="false" lines="none">
-          <ion-input type="text"></ion-input>
-        </ion-item>
+        <div class="inputs-container">
+          <div class="input-wrapper">
+            <input type="text" required name="fullname" id="fullname" />
+            <label for="fullname">Your Name</label>
+          </div>
+          <div class="input-wrapper">
+            <input
+              type="email"
+              required
+              name="email"
+              id="email"
+              class="input"
+            />
+            <label for="email">Your Email</label>
+          </div>
+          <div class="input-wrapper">
+            <textarea
+              name="message"
+              required=""
+              id="message"
+              placeholder="Hi Lucky, We currently have an opening at our company, and you seem to be a good fit for the role. when will you be available for a chat?"
+            ></textarea>
+            <label for="message">Your Message</label>
+          </div>
+        </div>
+        <ion-button
+          mode="md"
+          type="submit"
+          class="contact-submit-btn"
+          expand="block"
+          >send message</ion-button
+        >
       </form>
 
       <div class="contact-socials-btns-container">
@@ -54,32 +70,33 @@
           <ion-button> </ion-button>
         </ion-buttons>
       </div>
-      <div class="contact-banner">
-        <div class="contact-banner-image-wrapper">
-          <img
-            src="../../../assets/images/per-Edited.png"
-            alt=""
-            class="contact-banner-image"
-          />
-        </div>
+      <swiper #contactSwiper class="contact-swiper" [config]="swiperConfig">
+        <ng-template swiperSlide="" *ngFor="let testimonial of testimonials">
+          <div class="contact-banner">
+            <div class="contact-banner-image-wrapper">
+              <img
+                [src]="testimonial.author?.photo"
+                alt=""
+                class="contact-banner-image"
+              />
+            </div>
 
-        <div class="contact-testimonial-wrapper">
-          <div class="contact-testimonial">
-            <p>
-              " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
-              exercitationem sit quam recusandae ea optio minus cumque nisi ad
-              assumenda voluptas suscipit aspernatur iusto nostrum odit deleniti
-              maxime, ratione illum"
-            </p>
-            <div class="contact-testimonial-author">
-              <strong class="contact-testimonial-author-name"
-                >Per Harald Borgen</strong
-              ><br />
-              <span class="contact-testimonial-author-title">Scrimba CEO</span>
+            <div class="contact-testimonial-wrapper">
+              <div class="contact-testimonial">
+                <p innerText='"{{testimonial.content}}"'></p>
+                <div class="contact-testimonial-author">
+                  <strong class="contact-testimonial-author-name"
+                    >{{testimonial.author?.name}}</strong
+                  ><br />
+                  <span class="contact-testimonial-author-title"
+                    >{{testimonial.author?.profession}}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </ng-template>
+      </swiper>
     </div>
   </div>
 </ion-content>
