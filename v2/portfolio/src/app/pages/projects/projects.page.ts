@@ -28,18 +28,60 @@ export class ProjectsPage implements OnInit, OnDestroy {
     {
       title: 'Photo App',
       image: 'assets/images/screely-1667778440373.png',
+      tools: [
+        {
+          name: 'Typescript',
+          icon: 'assets/icon/icons8-typescript-48.png',
+        },
+        {
+          name: 'Ionic',
+          icon: 'assets/icon/icons8-ionic-48.png',
+        },
+        {
+          name: 'Angular',
+          icon: 'assets/icon/icons8-angular-icon.png',
+        },
+      ],
       gitUrl: '',
       liveUrl: '',
     },
     {
       title: 'Photo App',
       image: 'assets/images/screely-1662845944228.png',
+      tools: [
+        {
+          name: 'Typescript',
+          icon: 'assets/icon/icons8-typescript-48.png',
+        },
+        {
+          name: 'Ionic',
+          icon: 'assets/icon/icons8-ionic-48.png',
+        },
+        {
+          name: 'Angular',
+          icon: 'assets/icon/icons8-angular-icon.png',
+        },
+      ],
       gitUrl: '',
       liveUrl: '',
     },
 
     {
       title: 'Photo App',
+      tools: [
+        {
+          name: 'Typescript',
+          icon: 'assets/icon/icons8-typescript-48.png',
+        },
+        {
+          name: 'Ionic',
+          icon: 'assets/icon/icons8-ionic-48.png',
+        },
+        {
+          name: 'Angular',
+          icon: 'assets/icon/icons8-angular-icon.png',
+        },
+      ],
       image: 'assets/images/screely-1662845944228.png',
       gitUrl: '',
       liveUrl: '',

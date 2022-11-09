@@ -26,6 +26,13 @@
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
               fugit quaerat labore nihil ratione beatae?
             </p>
+
+            <ul class="card-metas-container">
+              <li *ngFor="let tool of project.tools" class="card-meta">
+                <img src="{{tool.icon}}" class="card-meta-icon" />{{tool.name}}
+              </li>
+            </ul>
+
             <div class="btns-container">
               <ion-buttons>
                 <ion-button>
