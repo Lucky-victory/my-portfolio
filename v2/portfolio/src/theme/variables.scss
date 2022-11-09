@@ -18,6 +18,7 @@
   --orange-rgb: 237, 128, 67;
   --home-bg: var(--orange);
   --primary-bg: #fff;
+  --primary-bg-rgb: 255, 255, 255;
   --primary-bg-light: rgba(255, 255, 255, var(--bg-opacity));
   --green: #097685;
   --green-rgb: 4, 190, 159;
@@ -107,6 +108,7 @@
 
   body {
     --primary-bg: #000;
+    --primary-bg-rgb: 0, 0, 0;
     --primary-bg-light: rgba(0, 0, 0, var(--bg-opacity));
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66, 140, 255;

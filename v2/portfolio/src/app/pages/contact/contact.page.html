@@ -1,9 +1,85 @@
 <ion-content [fullscreen]="true" class="main-content">
   <div class="inner-container">
-    <ion-header [collapse]="'condense'">
-      <ion-toolbar>
-        <ion-title>contact</ion-title>
-      </ion-toolbar>
-    </ion-header>
+    <div class="contact-form-container">
+      <form class="contact-form">
+        <h2>Let's Connect</h2>
+        <p class="grey small">It would be a pleasure to work with you.</p>
+        <h4 class="">Project Type</h4>
+        <ul class="contact-form-options-list">
+          <li class="contact-form-options-item">
+            <input
+              type="radio"
+              checked
+              name="project-type"
+              class="radio-input"
+              id="contract"
+            />
+            <label for="contract">contract</label>
+          </li>
+          <li class="contact-form-options-item">
+            <input
+              type="radio"
+              name="project-type"
+              class="radio-input"
+              id="part-time"
+            />
+            <label for="part-time">part time</label>
+          </li>
+          <li class="contact-form-options-item">
+            <input
+              type="radio"
+              name="project-type"
+              class="radio-input"
+              id="full-time"
+            />
+            <label for="full-time">full time</label>
+          </li>
+          <li class="contact-form-options-item">
+            <input
+              type="radio"
+              name="project-type"
+              class="radio-input"
+              id="others"
+            />
+            <label for="others">others</label>
+          </li>
+        </ul>
+        <ion-item detail="false" lines="none">
+          <ion-input type="text"></ion-input>
+        </ion-item>
+      </form>
+
+      <div class="contact-socials-btns-container">
+        <ion-buttons slot="start">
+          <ion-button> </ion-button>
+        </ion-buttons>
+      </div>
+      <div class="contact-banner">
+        <div class="contact-banner-image-wrapper">
+          <img
+            src="../../../assets/images/per-Edited.png"
+            alt=""
+            class="contact-banner-image"
+          />
+        </div>
+
+        <div class="contact-testimonial-wrapper">
+          <div class="contact-testimonial">
+            <p>
+              " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem
+              exercitationem sit quam recusandae ea optio minus cumque nisi ad
+              assumenda voluptas suscipit aspernatur iusto nostrum odit deleniti
+              maxime, ratione illum"
+            </p>
+            <div class="contact-testimonial-author">
+              <strong class="contact-testimonial-author-name"
+                >Per Harald Borgen</strong
+              ><br />
+              <span class="contact-testimonial-author-title">Scrimba CEO</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </ion-content>
