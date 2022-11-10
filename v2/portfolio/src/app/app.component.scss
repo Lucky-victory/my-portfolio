@@ -14,6 +14,9 @@ ion-split-pane.main-container {
 ion-buttons {
   .menu-button {
     margin-left: 1rem;
+    &::part(native) {
+      color: currentColor !important;
+    }
   }
 }
 ion-menu.main-menu {
