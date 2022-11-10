@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'home',
+    redirectTo: 'about',
   },
   {
     path: 'contact',
@@ -22,9 +22,13 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'home',
+    path: 'about',
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomePageModule),
+  },
+  {
+    path: '**',
+    redirectTo: 'about',
   },
 ];
 @NgModule({
