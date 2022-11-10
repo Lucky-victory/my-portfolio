@@ -7,14 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ContactPageRoutingModule } from './contact-routing.module';
 
 import { ContactPage } from './contact.page';
-
+import { SwiperModule } from 'swiper/angular';
 @NgModule({
   imports: [
+    SwiperModule,
     CommonModule,
     FormsModule,
     IonicModule,
-    ContactPageRoutingModule
+    ContactPageRoutingModule,
   ],
-  declarations: [ContactPage]
+  declarations: [ContactPage],
 })
 export class ContactPageModule {}

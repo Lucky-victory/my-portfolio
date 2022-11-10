@@ -11,13 +11,14 @@
   --font-three: "Kumbh Sans", sans-serif;
   --bg-radius: 20px 0 0 20px;
   --bg-opacity: 0.4;
-  --max-main-container-width: 1400px;
+  --max-main-container-width: 1300px;
   --french-blue: #0474ba;
   --french-blue-rgb: 4, 116, 186;
   --orange: #eb8540;
   --orange-rgb: 237, 128, 67;
   --home-bg: var(--orange);
   --primary-bg: #fff;
+  --primary-bg-rgb: 255, 255, 255;
   --primary-bg-light: rgba(255, 255, 255, var(--bg-opacity));
   --green: #097685;
   --green-rgb: 4, 190, 159;
@@ -107,6 +108,7 @@
 
   body {
     --primary-bg: #000;
+    --primary-bg-rgb: 0, 0, 0;
     --primary-bg-light: rgba(0, 0, 0, var(--bg-opacity));
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66, 140, 255;

@@ -6,7 +6,6 @@
     *ngIf="!showTabs"
   >
     <ion-menu
-     
       contentId="menu-content"
       menuId="main-menu"
       class="main-menu"
@@ -16,7 +15,7 @@
     >
       <ion-content [fullscreen]="true" class="menu-content">
         <ion-buttons>
-          <ion-button (click)="toggleFullNav()" class="menu-button">
+          <ion-button (click)="toggleFullNav()" class="menu-button" mode="md">
             <ion-icon slot="icon-only" name="menu"></ion-icon>
           </ion-button>
         </ion-buttons>

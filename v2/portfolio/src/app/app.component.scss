@@ -8,7 +8,7 @@ $bx-shadow: -1px 2px 7px rgba(0, 0, 0, 0.35);
 $indicator-width: 65px;
 ion-split-pane.main-container {
   // background: var(--background);
-  max-width: var(--max-main-container-width, 1400px);
+  max-width: var(--max-main-container-width, 1300px);
   margin: 0 auto;
 }
 ion-buttons {
@@ -20,14 +20,14 @@ ion-menu.main-menu {
   --min-nav-width: 70px;
 
   --side-min-width: var(--min-nav-width);
-  --side-max-width: 250px;
+  --side-max-width: 230px;
   --side-width: var(--min-nav-width);
 
   --border: none !important;
   transition: width 0.4s ease-in-out;
   &::part(container) {
     padding-top: 1rem;
-    background-color: var(--ion-color-step-150, var(--ion-color-light-shade));
+    background-color: var(--background);
   }
   &.full {
     --side-width: 200px;
@@ -153,18 +153,18 @@ ion-tab-bar {
     display: block;
     border: none;
   }
-  .indicator {
-    position: absolute;
-    width: $indicator-width;
-    height: $indicator-width;
-    top: -50%;
-    left: 0;
-    border-radius: 50%;
-    background-color: var(--orange, var(--ion-color-light-shade));
-    border: 6px solid var(--background);
-    transform: translateX(var(--indicator-translate));
-    transition: 0.4s;
-  }
+}
+.indicator {
+  position: absolute;
+  width: $indicator-width;
+  height: $indicator-width;
+  top: -50%;
+  left: 0;
+  border-radius: 50%;
+  background-color: var(--orange, var(--ion-color-light-shade));
+  border: 6px solid var(--background);
+  transform: translateX(var(--indicator-translate));
+  transition: 0.4s;
   &::before {
     content: "";
     position: absolute;
@@ -188,6 +188,7 @@ ion-tab-bar {
     box-shadow: -1px -10px 0 var(--background);
   }
 }
+
 .tabs-buttons-wrapper {
   width: 100%;
   max-width: 390px !important;

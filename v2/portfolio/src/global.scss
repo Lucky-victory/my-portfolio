@@ -51,3 +51,12 @@ ion-content {
 .swiper-cube-shadow {
   display: none !important;
 }
+.grey {
+  color: var(--ion-color-medium-tint);
+}
+.small {
+  font-size: 14px;
+}
+.vis-hidden {
+  visibility: hidden;
+}

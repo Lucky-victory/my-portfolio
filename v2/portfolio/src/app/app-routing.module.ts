@@ -9,11 +9,13 @@ const routes: Routes = [
   },
   {
     path: 'contact',
+    title: 'Lucky Victory | Contact',
     loadChildren: () =>
       import('./pages/contact/contact.module').then((m) => m.ContactPageModule),
   },
   {
     path: 'projects',
+    title: 'Lucky Victory | Projects',
     loadChildren: () =>
       import('./pages/projects/projects.module').then(
         (m) => m.ProjectsPageModule
