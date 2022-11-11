@@ -29,7 +29,11 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'about',
+  },  {
+    path: 'testimonials',
+    loadChildren: () => import('./pages/testimonials/testimonials.module').then( m => m.TestimonialsPageModule)
   },
+
 ];
 @NgModule({
   imports: [

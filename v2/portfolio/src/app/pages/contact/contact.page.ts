@@ -23,12 +23,15 @@ SwiperCore.use([Autoplay, Navigation, EffectCube]);
 })
 export class ContactPage implements AfterViewInit {
   swiperConfig: SwiperOptions = {
-    navigation: true,
+    navigation: {
+      nextEl: '.swiper-next-btn',
+      prevEl: '.swiper-prev-btn',
+    },
     loop: true,
     effect: 'cube',
     grabCursor: true,
     autoplay: {
-      delay: 4000,
+      delay: 10000,
       disableOnInteraction: true,
     },
   };

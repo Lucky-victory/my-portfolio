@@ -3,14 +3,14 @@ import { Animation, Platform, IonicSlides } from '@ionic/angular';
 import { Subscription } from 'rxjs';
 import SwiperCore, { Keyboard, Pagination, Navigation, Zoom } from 'swiper';
 
-SwiperCore.use([Keyboard, Navigation, Pagination, Zoom, IonicSlides]);
+SwiperCore.use([Keyboard, Navigation, Pagination, Zoom]);
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.page.html',
   styleUrls: ['./projects.page.scss'],
 })
 export class ProjectsPage implements OnInit, OnDestroy {
-  animation: Animation;
+  
   slidesPerView: number = 1;
   projects = [
     {
