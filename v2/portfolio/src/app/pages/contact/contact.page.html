@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true" class="main-content">
   <div class="inner-container">
     <div class="contact-form-container">
-      <form class="contact-form">
+      <form class="contact-form" #contactForm="ngForm">
         <h1>Let's Connect</h1>
         <p class="grey small">It would be a pleasure to work with you.</p>
         <h4 class="">What kind of Job would you like to hire me for?</h4>
@@ -43,6 +43,7 @@
               name="email"
               id="email"
               class="input"
+              inputmode="email"
             />
             <label for="email">Your Email</label>
           </div>
@@ -61,6 +62,7 @@
           type="submit"
           class="contact-submit-btn"
           expand="block"
+          [disabled]="contactForm.invalid"
           >send message</ion-button
         >
       </form>

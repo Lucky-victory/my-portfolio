@@ -243,8 +243,12 @@
   }
 }
 @media all and (max-width: 760px) {
+  .inner-container {
+    padding: 0.5rem;
+  }
   .contact-swiper-container {
     min-height: 500px;
+    padding: 0.375rem;
   }
   .contact-banner {
     max-width: 400px;

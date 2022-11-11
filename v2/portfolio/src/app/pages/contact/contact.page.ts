@@ -14,7 +14,7 @@ import SwiperCore, {
   Navigation,
 } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
-SwiperCore.use([Autoplay, Navigation, EffectCube]);
+SwiperCore.use([Autoplay, Navigation, EffectCube, IonicSlides]);
 
 @Component({
   selector: 'app-contact',
