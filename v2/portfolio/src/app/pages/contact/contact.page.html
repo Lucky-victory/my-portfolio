@@ -70,33 +70,41 @@
           <ion-button> </ion-button>
         </ion-buttons>
       </div> -->
-      <swiper #contactSwiper class="contact-swiper" [config]="swiperConfig">
-        <ng-template swiperSlide="" *ngFor="let testimonial of testimonials">
-          <div class="contact-banner">
-            <div class="contact-banner-image-wrapper">
-              <img
-                [src]="testimonial.author?.photo"
-                alt=""
-                class="contact-banner-image"
-              />
-            </div>
+      <div class="contact-swiper-container">
+        <div class="swiper-prev-btn">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </div>
+        <div class="swiper-next-btn">
+          <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+        </div>
+        <swiper #contactSwiper class="contact-swiper" [config]="swiperConfig">
+          <ng-template swiperSlide="" *ngFor="let testimonial of testimonials">
+            <div class="contact-banner">
+              <div class="contact-banner-image-wrapper">
+                <img
+                  [src]="testimonial.author?.photo"
+                  alt=""
+                  class="contact-banner-image"
+                />
+              </div>
 
-            <div class="contact-testimonial-wrapper">
-              <div class="contact-testimonial">
-                <p innerText='"{{testimonial.content}}"'></p>
-                <div class="contact-testimonial-author">
-                  <strong class="contact-testimonial-author-name"
-                    >{{testimonial.author?.name}}</strong
-                  ><br />
-                  <span class="contact-testimonial-author-title"
-                    >{{testimonial.author?.profession}}
-                  </span>
+              <div class="contact-testimonial-wrapper">
+                <div class="contact-testimonial">
+                  <p innerText='"{{testimonial.content}}"'></p>
+                  <div class="contact-testimonial-author">
+                    <strong class="contact-testimonial-author-name"
+                      >{{testimonial.author?.name}}</strong
+                    ><br />
+                    <span class="contact-testimonial-author-title"
+                      >{{testimonial.author?.profession}}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </ng-template>
-      </swiper>
+          </ng-template>
+        </swiper>
+      </div>
     </div>
   </div>
 </ion-content>
