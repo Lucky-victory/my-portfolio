@@ -1,8 +1,14 @@
 <ion-content [scrollX]="true" [fullscreen]="true">
   <div class="inner-container">
+    <div class="swiper-prev-btn">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </div>
+    <div class="swiper-next-btn">
+      <ion-icon slot="icon-only" name="arrow-forward"></ion-icon>
+    </div>
     <swiper
       [keyboard]="true"
-      [navigation]="true"
+      [navigation]="{nextEl:'.swiper-next-btn',prevEl:'.swiper-prev-btn'}"
       [pagination]="{clickable:true}"
       [loop]="true"
       [slidesPerView]="slidesPerView"
@@ -34,16 +40,14 @@
             </ul>
 
             <div class="btns-container">
-              <ion-buttons>
-                <ion-button>
-                  <ion-icon slot="start" name="logo-github"></ion-icon>
-                  source
-                </ion-button>
-                <ion-button>
-                  <ion-icon slot="start" name="globe-sharp"></ion-icon>
-                  view live
-                </ion-button>
-              </ion-buttons>
+              <ion-button type="button" mode="md" class="btn outline">
+                <ion-icon slot="start" name="logo-github"></ion-icon>
+                source
+              </ion-button>
+              <ion-button type="button" mode="md" class="btn fill">
+                <ion-icon slot="start" name="globe-sharp"></ion-icon>
+                view live
+              </ion-button>
             </div>
           </div>
         </div>

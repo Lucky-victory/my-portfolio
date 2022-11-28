@@ -23,7 +23,7 @@ export class AppComponent implements OnDestroy {
   pages = [
     {
       title: 'About me',
-      url: 'home',
+      url: 'about',
       icon: {
         name: 'person-outline',
         src: null,
