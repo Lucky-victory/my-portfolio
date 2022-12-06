@@ -16,6 +16,7 @@ export class ProjectsPage implements OnInit, OnDestroy {
     {
       title: 'Photo App',
       image: 'assets/images/screely-1667778440373.png',
+      desc:"Phozy is photo-sharing platform, where you can share, like, collect or download photos for free",
       tools: [
         {
           name: 'Typescript',
@@ -29,50 +30,33 @@ export class ProjectsPage implements OnInit, OnDestroy {
           name: 'Angular',
           icon: 'assets/icon/icons8-angular-icon.png',
         },
-      ],
-      gitUrl: '',
-      liveUrl: '',
-    },
-    {
-      title: 'Photo App',
-      image: 'assets/images/screely-1662845944228.png',
-      tools: [
         {
-          name: 'Typescript',
-          icon: 'assets/icon/icons8-typescript-48.png',
-        },
-        {
-          name: 'Ionic',
-          icon: 'assets/icon/icons8-ionic-48.png',
-        },
-        {
-          name: 'Angular',
-          icon: 'assets/icon/icons8-angular-icon.png',
+          name: 'HarperDB',
+          icon: 'assets/images/harperdb-icon.png',
         },
       ],
-      gitUrl: '',
-      liveUrl: '',
+      gitUrl: 'https://github.com/Lucky-victory/phozy',
+      liveUrl: 'https://phozy.up.railway.app/',
     },
+    
 
     {
-      title: 'Photo App',
+      title: 'Audio player',
+      desc:"An audio player with playlist",
       tools: [
         {
           name: 'Typescript',
           icon: 'assets/icon/icons8-typescript-48.png',
         },
-        {
-          name: 'Ionic',
-          icon: 'assets/icon/icons8-ionic-48.png',
-        },
+        
         {
           name: 'Angular',
           icon: 'assets/icon/icons8-angular-icon.png',
         },
       ],
-      image: 'assets/images/screely-1662845944228.png',
-      gitUrl: '',
-      liveUrl: '',
+      image: 'assets/images/screely-1670324874971.png',
+      gitUrl: 'https://github.com/Lucky-victory/angular-music-player',
+      liveUrl: 'https://ng-audio-player.vercel.app',
     },
   ];
   screenSizes = {

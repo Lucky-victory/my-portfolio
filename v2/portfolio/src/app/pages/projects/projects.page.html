@@ -29,8 +29,7 @@
               <h2 class="card-title">{{project.title}}</h2>
             </div>
             <p class="card-content-desc">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum
-              fugit quaerat labore nihil ratione beatae?
+            {{project.desc}}
             </p>
 
             <ul class="card-metas-container">
@@ -40,11 +39,11 @@
             </ul>
 
             <div class="btns-container">
-              <ion-button type="button" mode="md" class="btn outline">
+              <ion-button type="button" mode="md" href="{{project.gitUrl}}" target="_blank" class="btn outline">
                 <ion-icon slot="start" name="logo-github"></ion-icon>
                 source
               </ion-button>
-              <ion-button type="button" mode="md" class="btn fill">
+              <ion-button href="{{project.liveUrl}}" target="_blank" type="button" mode="md" class="btn fill">
                 <ion-icon slot="start" name="globe-sharp"></ion-icon>
                 view live
               </ion-button>
