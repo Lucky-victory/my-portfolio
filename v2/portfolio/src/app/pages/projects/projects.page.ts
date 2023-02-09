@@ -36,7 +36,7 @@ export class ProjectsPage implements OnInit, OnDestroy {
         },
       ],
       gitUrl: 'https://github.com/Lucky-victory/phozy',
-      liveUrl: 'https://phozy.up.railway.app/',
+      liveUrl: 'https://phozy.vercel.app/',
     },
     
 
