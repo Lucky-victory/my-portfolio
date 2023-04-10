@@ -126,7 +126,7 @@ svg{
   width: 150px;
   height: 150px;
   transform: rotate(180deg);
-margin: 1em auto;
+margin: 0.5em auto;
 }
 svg circle {
   fill: none;
@@ -157,18 +157,21 @@ svg circle.inner{
   
 }
 .timer{
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 500;
   color: currentColor;
 }
 .timer-title{
   color: #777;
   text-transform: uppercase;
-  font-size: 1em;
+  font-size: 0.875em;
 }
 @media all and (max-width: 450px){
   body{
     font-size: 13px;
   }
   
+}
+.d-none{
+   display: none!important;
 }
