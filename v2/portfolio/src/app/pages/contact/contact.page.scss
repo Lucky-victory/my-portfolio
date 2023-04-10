@@ -6,7 +6,9 @@
   background-color: var(--contact-bg);
   padding: 1rem;
 }
-
+.disabled{
+  background: #000;
+}
 .contact-form-container {
   display: flex;
   flex-wrap: wrap;

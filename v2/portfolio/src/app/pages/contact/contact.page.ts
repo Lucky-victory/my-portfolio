@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { IonicSlides, Platform } from '@ionic/angular';
+import { IonicSlides, Platform ,LoadingController} from '@ionic/angular';
 
 import SwiperCore, {
   Autoplay,
@@ -15,6 +15,7 @@ import SwiperCore, {
 } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
 SwiperCore.use([Autoplay, Navigation, EffectCube, IonicSlides]);
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
@@ -48,14 +49,14 @@ export class ContactPage implements AfterViewInit {
       author: {
         name: 'Per Harald Borgen',
         profession: 'CEO of Scrimba',
-        photo: '../../../assets/images/per-Edited.png',
+        photo: 'assets/images/per-Edited.png',
       },
       content:
         "Victory is a very talented developer who generously shares his knowledge with others. He is a very valued member of our community, as he's both willing and capable to get other students unstuck when they are struggling. Any company or community that gets ahold of Victory should do its utmost to keep him.",
     },
     {
       author: {
-        photo: '../../../assets/images/oladapo.jpg',
+        photo: 'assets/images/oladapo.jpg',
         name: 'Oladapo David Ifeoluwa ( MSC, SAS)',
         profession: 'Data-scientist, Lecturer.',
       },
@@ -81,7 +82,7 @@ export class ContactPage implements AfterViewInit {
       title: 'others',
     },
   ];
-  constructor(private platform: Platform) {}
+  constructor(private platform: Platform,private loadingCtrl:LoadingController) {}
 
   get leftJobTypes() {
     return this.jobTypes.filter((jobType) => jobType.id !== 'contract');
@@ -98,5 +99,19 @@ export class ContactPage implements AfterViewInit {
   onFocusOut(event: Event) {
     const target = event.target as HTMLTextAreaElement;
     this.hasFocus = target.value.trim() === '';
+  }
+  sendEmail() {
+    
+  }
+  formSubmit(event:Event) {
+    const target = (event.target) as HTMLFormElement;
+    event.preventDefault();
+    console.log({target});
+    
+    this.showLoader()
+  }
+  async showLoader() {
+    const loader = await this.loadingCtrl.create({duration:4000});
+    loader.present();
   }
 }

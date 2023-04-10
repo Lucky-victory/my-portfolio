@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true" class="main-content">
   <div class="inner-container">
     <div class="contact-form-container">
-      <form class="contact-form" #contactForm="ngForm">
+      <form class="contact-form" #contactForm="ngForm" (ngSubmit)="formSubmit($event)">
         <h1>Let's Connect</h1>
         <p class="grey small">It would be a pleasure to work with you.</p>
         <h4 class="">What kind of Job would you like to hire me for?</h4>
@@ -61,6 +61,7 @@
           mode="md"
           type="submit"
           class="contact-submit-btn"
+          [ngClass]="[contactForm.invalid ? 'disabled':'']"
           expand="block"
           [disabled]="contactForm.invalid"
           >send message</ion-button
