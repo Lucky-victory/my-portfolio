@@ -2,12 +2,10 @@ $bx-shadow: -1px 2px 7px 0px rgba(0, 0, 0, 0.5);
 $bx-shadow-light: -1px 2px 7px 0px rgba(255, 255, 255, 0.5);
 
 .inner-container {
-  height: 100%;
-  width: 100%;
-  min-height: 600px;
+
+  min-height: 500px;
 
   background-color: var(--projects-bg);
-  padding: 1rem;
   position: relative;
   overflow-y: auto;
 }

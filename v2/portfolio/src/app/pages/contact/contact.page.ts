@@ -5,7 +5,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { IonicSlides, Platform ,LoadingController} from '@ionic/angular';
+import { IonicSlides, Platform ,AlertController} from '@ionic/angular';
 
 import SwiperCore, {
   Autoplay,
@@ -16,6 +16,7 @@ import SwiperCore, {
 import { SwiperComponent } from 'swiper/angular';
 SwiperCore.use([Autoplay, Navigation, EffectCube, IonicSlides]);
 import emailjs from '@emailjs/browser';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -37,6 +38,12 @@ export class ContactPage implements AfterViewInit {
     },
   };
   hasFocus: boolean = false;
+  message: string=''
+  email: string=''
+  fullname: string = ''
+  selectedJobType: string = 'contract'
+  isSending = false;
+  contactForm: NgForm;
   @ViewChild('contactSwiper') contactSwiper: SwiperComponent;
   screenSizes = {
     sm: 574,
@@ -82,36 +89,44 @@ export class ContactPage implements AfterViewInit {
       title: 'others',
     },
   ];
-  constructor(private platform: Platform,private loadingCtrl:LoadingController) {}
+  constructor(private platform: Platform,private alertCtrl:AlertController) {}
 
-  get leftJobTypes() {
-    return this.jobTypes.filter((jobType) => jobType.id !== 'contract');
-  }
+
   ngAfterViewInit(): void {
     setTimeout(() => {
       this.contactSwiper.swiperRef.autoplay.start();
     }, 1500);
   }
-  onFocusIn(event: Event) {
-    const target = event.target as HTMLTextAreaElement;
-    this.hasFocus = target.value.trim() === '';
+  
+  async sendEmail(fullname: string, email: string,message:string,job_type:string) {
+    try {
+     
+      await emailjs.send('service_emo60na','template_au2exk7',{to_name:fullname,to_email:email,message,job_type},'56mvGaiMJshw26OGe')
+      
+      this.isSending = false;
+      if (this.contactForm.submitted) {
+     this. contactForm.resetForm({ job_type: 'contract' });
+      this.showAlert()
+    }
+    } catch (err) {
+      console.log({ err });
+      this.isSending = false;
+      this.showAlert('Couldn\'t send message, please try again')
+    }
   }
-  onFocusOut(event: Event) {
-    const target = event.target as HTMLTextAreaElement;
-    this.hasFocus = target.value.trim() === '';
-  }
-  sendEmail() {
+  formSubmit(contactForm:NgForm) {
+    this.contactForm=contactForm
+    console.log({ contactForm });
+    const { fullname, message, email, job_type } = contactForm.control.value;
     
-  }
-  formSubmit(event:Event) {
-    const target = (event.target) as HTMLFormElement;
-    event.preventDefault();
-    console.log({target});
+    this.sendEmail(fullname,email,message,job_type)
     
-    this.showLoader()
+    this.isSending=true
+    
+  
   }
-  async showLoader() {
-    const loader = await this.loadingCtrl.create({duration:4000});
-    loader.present();
+  async showAlert(message='Message sent') {
+    const customAlert = await this.alertCtrl.create({message,mode:'ios',buttons:['ok']});
+    customAlert.present();
   }
 }

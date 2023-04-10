@@ -9,7 +9,8 @@ $indicator-width: 65px;
 ion-split-pane.main-container {
   // background: var(--background);
   max-width: var(--max-main-container-width, 1300px);
-  margin: 0 auto;
+  margin: auto;
+  max-height: 1000px;
 }
 ion-buttons {
   .menu-button {

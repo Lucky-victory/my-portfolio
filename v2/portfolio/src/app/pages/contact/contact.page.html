@@ -1,72 +1,81 @@
-<ion-content [fullscreen]="true" class="main-content">
+<ion-content  class="main-content">
   <div class="inner-container">
     <div class="contact-form-container">
-      <form class="contact-form" #contactForm="ngForm" (ngSubmit)="formSubmit($event)">
-        <h1>Let's Connect</h1>
-        <p class="grey small">It would be a pleasure to work with you.</p>
-        <h4 class="">What kind of Job would you like to hire me for?</h4>
-        <ul class="contact-form-options-list">
-          <li class="contact-form-options-item">
-            <input
-              type="radio"
-              name="project-type"
-              class="radio-input"
-              checked
-              id="{{jobTypes[0].id}}"
-              value="{{jobTypes[0].title}}"
-            />
-            <label for="{{jobTypes[0].id}}">{{jobTypes[0].title}}</label>
-          </li>
-          <li
-            class="contact-form-options-item"
-            *ngFor="let jobType of leftJobTypes;"
-          >
-            <input
-              type="radio"
-              name="project-type"
-              class="radio-input"
-              id="{{jobType.id}}"
-              value="{{jobType.title}}"
-            />
-            <label for="{{jobType.id}}">{{jobType.title}}</label>
-          </li>
-        </ul>
-        <div class="inputs-container">
-          <div class="input-wrapper">
-            <input type="text" required name="fullname" id="fullname" />
-            <label for="fullname">Your Name</label>
-          </div>
-          <div class="input-wrapper">
-            <input
-              type="email"
-              required
-              name="email"
-              id="email"
-              class="input"
-              inputmode="email"
-            />
-            <label for="email">Your Email</label>
-          </div>
-          <div class="input-wrapper">
-            <textarea
-              name="message"
-              required=""
-              id="message"
-              placeholder="Hi Lucky, We currently have an opening at our company, and you seem to be a good fit for the role. when will you be available for a chat?"
-            ></textarea>
-            <label for="message">Your Message</label>
-          </div>
+<form class="contact-form" #contactForm="ngForm" (ngSubmit)="formSubmit(contactForm)">
+  <h1 style="margin: 0;">Let's Connect</h1>
+  <p class="grey small">It would be a pleasure to work with you.</p>
+  <h4>What kind of Job would you like to hire me for?</h4>
+  <ul class="contact-form-options-list">
+    
+    <li
+      class="contact-form-options-item"
+      *ngFor="let jobType of  jobTypes;"
+    >
+      <input
+        type="radio"
+        name="job_type"
+        class="radio-input"
+        id="{{jobType.id}}"
+        value="{{jobType.title}}"
+        required
+        [(ngModel)]="selectedJobType"
+        
+      />
+      <label for="{{jobType.id}}">{{jobType.title}}</label>
+    </li>
+  </ul>
+  <div class="inputs-container">
+    <div class="input-wrapper">
+      <input type="text" required name="fullname" id="fullname" [(ngModel)]="fullname"/>
+      <label for="fullname">Your Name</label>
+    </div>
+    <div class="input-wrapper">
+      <input
+        type="email"
+        required
+        name="email"
+        id="email"
+        class="input"
+        inputmode="email"
+        [(ngModel)]="email"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+      />
+      <label for="email">Your Email</label>
+      <div
+        *ngIf="contactForm.controls.email?.invalid && (contactForm.controls.email.dirty || contactForm.submitted)"
+        class="error"
+      >
+        <div *ngIf="contactForm.controls.email.errors.required">
+          Email is required
         </div>
-        <ion-button
-          mode="md"
-          type="submit"
-          class="contact-submit-btn"
-          [ngClass]="[contactForm.invalid ? 'disabled':'']"
-          expand="block"
-          [disabled]="contactForm.invalid"
-          >send message</ion-button
-        >
-      </form>
+        <div *ngIf="contactForm.controls.email.errors.pattern">
+          Invalid email format
+        </div>
+      </div>
+    </div>
+    <div class="input-wrapper">
+      <textarea
+        name="message"
+        required=""
+        id="message"
+        [(ngModel)]="message"
+        placeholder="Hi Lucky, We currently have an opening at our company, and you seem to be a good fit for the role. when will you be available for a chat?"
+      ></textarea>
+      <label for="message">Your Message</label>
+    </div>
+  </div>
+  <ion-button
+    mode="md"
+    type="submit"
+    class="contact-submit-btn"
+    
+    expand="block"
+    [disabled]="contactForm?.invalid"
+  >
+  <ion-spinner [hidden]="!isSending" style="margin-right:10;"></ion-spinner>
+   {{isSending ? 'Sending message':'Send Message'}}
+  </ion-button>
+</form>
       <!-- 
       <div class="contact-socials-btns-container">
         <ion-buttons slot="start">

@@ -43,12 +43,23 @@ ion-content {
   &::part(background) {
     background-color: transparent;
   }
+  &.main-content{
+    margin: 4rem auto;
+  }
 }
 
 * {
   font-family: var(--font-three);
+  
 }
-
+.inner-container {
+  // height: 100%;
+  width: 100%;
+  padding: 0.625rem;
+  overflow-y: auto;
+margin: auto;
+  background-color: var(--orange);
+}
 .swiper-cube-shadow {
   display: none !important;
 }
