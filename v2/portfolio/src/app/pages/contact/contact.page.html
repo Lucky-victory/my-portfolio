@@ -73,7 +73,8 @@
     [disabled]="contactForm?.invalid"
   >
   <ion-spinner [hidden]="!isSending" style="margin-right:10;"></ion-spinner>
-   {{isSending ? 'Sending message':'Send Message'}}
+  
+  {{isSending ? ' Sending message':'Send Message'}}
   </ion-button>
 </form>
       <!-- 
