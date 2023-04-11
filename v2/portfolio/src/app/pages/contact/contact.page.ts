@@ -126,7 +126,7 @@ export class ContactPage implements AfterViewInit {
   
   }
   async showAlert(message='Message sent') {
-    const customAlert = await this.alertCtrl.create({message,mode:'ios',buttons:['ok']});
+    const customAlert = await this.alertCtrl.create({message,buttons:['OK']});
     customAlert.present();
   }
 }
