@@ -137,7 +137,7 @@ const Hero = ({
               w={"100%"}
               h="100%"
               objectFit={"cover"}
-              src="/images/my-photo.png"
+              src="/images/me.jpg"
             />
           </Box>
         </Flex>

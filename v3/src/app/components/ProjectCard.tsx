@@ -28,7 +28,7 @@ const projects=[
     title:'My Portfolio',tools:['Typescript','NextJS','Chakra UI','Resend'],desc:'My portfolio website serves as a creative canvas where I showcase my diverse range of projects, skills, and experiences. With an intuitive design and seamless navigation, it offers visitors a glimpse into my journey as a passionate creator.',git:'https://github.com/lucky-victory/my-portfolio',live:'https://lucky-victory.dev',cover:'/images/portfolio.png'
   },
   {
-    title:'HackHost',tools:['Typescript','NextJS','Chakra UI','TiDB','Redux Toolkit'],desc:'HackHost is an open-source platform that simplifies hackathon hosting. It offers a user-friendly interface built with chakra-ui, Next.js, Prisma, and TiDB Serverless. ',git:'https://github.com/lucky-victory/hackhost',live:'https://hackhost-alpha.vercel.app',cover:'/images/hackhost.png'
+    title:'HackHost',tools:['Typescript','NextJS','Chakra UI','TiDB','Redux Toolkit','Prisma'],desc:'HackHost is an open-source platform that simplifies hackathon hosting. It offers a user-friendly interface built with chakra-ui, Next.js, Prisma, and TiDB Serverless. ',git:'https://github.com/lucky-victory/hackhost',live:'https://hackhost-alpha.vercel.app',cover:'/images/hackhost.png'
   },
   {
     title:'Rejuvenate AI',tools:['Typescript','NextJS','Chakra UI','TailwindCSS'],desc:'A decentralized web app at the forefront of healthy living. We want to build healthy communities all around the world, we want these communities to form green zones in their regions, ',git:'https://github.com/Lucky-victory/rejuvenate',live:'https://rejuvenate-ai.netlify.app/',cover:'/images/rejuvenate.png'
@@ -55,7 +55,7 @@ const ProjectCard = () => {
       w={'full'} 
       border={"2px solid var(--primary-theme-color)"}
     >
-      <Box height={200} w={"full"} bg={'var(--bg-color)'}>
+      <Box height={200} mb={3} w={"full"} bg={'var(--bg-color)'}>
         <Image
           src={project.cover||"/images/math-in-software.png"}
           alt=""
@@ -88,8 +88,8 @@ const ProjectCard = () => {
             <Text
               key={'tool'+i}
               as={"span"}
-              px={3}
-              py={0.5}
+              px={3} pt={0.5}
+              pb={1}
               fontSize={{base:"14px",lg:'16px'}}
               rounded={"full"} letterSpacing={'wider'} className={fredokaFont.className}
               color={"var(--primary-theme-color,white)"}

@@ -37,7 +37,7 @@ const style={_before:{
     {showSpinner && 
 <Spinner speed={'0.65s'} label="loading" size={'sm'} color={'var(--primary-theme-color)'}/>
     }
-<Heading>Choose A theme</Heading>
+<Heading color={'white'}>Choose A theme</Heading>
 <Text fontSize={'sm'} color={'gray'}>You can change this later</Text>
 
 <ThemeSwitcher setTheme={setTheme} activeColor={activeColor}  fixedPos={false}/>
