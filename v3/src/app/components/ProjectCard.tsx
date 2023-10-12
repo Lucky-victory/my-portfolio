@@ -55,7 +55,7 @@ const ProjectCard = () => {
       w={'full'} 
       border={"2px solid var(--primary-theme-color)"}
     >
-      <Box height={200} w={"full"} bg={'var(--bg-color)'}>
+      <Box height={200} mb={3} w={"full"} bg={'var(--bg-color)'}>
         <Image
           src={project.cover||"/images/math-in-software.png"}
           alt=""

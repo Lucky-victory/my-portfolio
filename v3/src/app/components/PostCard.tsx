@@ -30,7 +30,7 @@ const PostCard = ({ post = {} }: { post: any }) => {
       minH={400}
       minW={300}
       maxW={380}
-      w={'full'} 
+      w={'full'}  mb={3}
       border={"2px solid var(--app-color-3)"}
       transition={"0.3s ease-in-out"}
       _hover={{transform:'translateY(-5px)'}}

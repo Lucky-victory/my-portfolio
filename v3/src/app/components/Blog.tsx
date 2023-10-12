@@ -57,7 +57,7 @@ setIsLoading(true)
         <Flex
         wrap={"wrap"}
           gap={5}
-          px={{base:2,lg:4}}
+          px={{base:4,lg:6}}
 
           my={6}
           maxW={1300}

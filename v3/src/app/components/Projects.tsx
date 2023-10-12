@@ -16,7 +16,7 @@ const Projects = () => {
           maxW={1300}
           mx={"auto"}
           justify={"center"}
-      px={{base:2,lg:4}}
+      px={{base:4,lg:4}}
 
         >
           <ProjectCard />
