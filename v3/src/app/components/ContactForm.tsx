@@ -64,7 +64,7 @@ const ContactForm = () => {
     variant: "unstyled",
     rounded: "full",
     border: "2px solid var(--primary-theme-color)",
-    transition: "0.4s",
+    transition: "0.3s",
   };
   async function handleSubmit(evt: FormEvent) {
     evt.preventDefault();
@@ -81,6 +81,7 @@ const ContactForm = () => {
       });
 
       setIsSubmitting(false);
+      setFormState({email:'',name:'',message:''})
       toast();
     } catch (error) {
       setIsSubmitting(false);
@@ -88,7 +89,7 @@ const ContactForm = () => {
         title: "An error occurred, please try again...",
         status: "error",
       });
-      console.warn("error");
+      console.warn({error});
     }
   }
   function handleChange(
@@ -209,12 +210,12 @@ const ContactForm = () => {
             placeholder="Your Name"
             onChange={handleChange}
             {...defaultStyles}
-            name="name"
+            name="name" value={formState.name}
           />
           <Input
             placeholder="Your email"
             onChange={handleChange}
-            {...defaultStyles}
+            {...defaultStyles} value={formState.email}
             type="email"
             name="email"
           />
@@ -223,7 +224,7 @@ const ContactForm = () => {
             name="message"
             minH={170}
             maxH={220}
-            {...defaultStyles}
+            {...defaultStyles} value={formState.message}
             h={183}
             py={4}
             onChange={handleChange}
@@ -258,8 +259,8 @@ const ContactForm = () => {
               transition: "0.4s ease-in-out",
             }}
             color="var(--bg-color)"
-            _hover={{ _before: { h: 0 }, color: "var(--primary-theme-color)"}}
-
+            _hover={{_disabled:{_before:{display:'none'}}, _before: { h: 0 }, color: "var(--primary-theme-color)"}}
+            _disabled={{_before:{display:'none'}}}
             type="submit"
             isLoading={isSubmitting}
             loadingText="Sending..."
