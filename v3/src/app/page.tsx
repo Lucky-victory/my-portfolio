@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <>
-      <Loader />
+      {/* <Loader /> */}
     <main className={styles.main}>
       <Hero setTheme={setTheme} activeColor={activeColor} />
       <Blog />
