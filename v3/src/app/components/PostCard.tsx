@@ -21,7 +21,7 @@ const PostCard = ({ post = {} }: { post: any }) => {
       return text.substring(0, maxLength - 3) + "...";
     }
   }
-  const blogUrl = "https://blog.lucky-victory.dev";
+  const blogUrl = "https://blog.devvick.com";
   return (
     <Box
       overflow={"hidden"}
