@@ -10,8 +10,8 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(EMAIL_API_KEY);
 
     await resend.emails.send({
-      from: `Message from ${name} <hello@lucky-victory.dev>`,
-      to: ["hello@lucky-victory.dev", "luckyvictory54@gmail.com"],
+      from: `Message from ${name} <mail@devvick.dev>`,
+      to: ["luckyvictory54@gmail.com"],
       subject: "Contact Form Submission",
       text: "",
       react: ReceiverEmailTemplate({ name, email, message }),
