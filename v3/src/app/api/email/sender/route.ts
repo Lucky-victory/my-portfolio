@@ -10,8 +10,8 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(EMAIL_API_KEY);
 
     await resend.emails.send({
-      from: `Hello from Lucky Victory <hello@lucky-victory.dev>`,
-      reply_to: "hello@lucky-victory.dev",
+      from: `Hello from Lucky Victory <mail@devvick.com>`,
+      reply_to: "luckyvictory54@gmail.com",
       to: [`${email}`],
       subject: "Contact Form Submission",
       text: "",
