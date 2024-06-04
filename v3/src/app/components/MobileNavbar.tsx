@@ -10,19 +10,12 @@ import {
   Stack,
   Button,
   Box,
-  Input,
 } from "@chakra-ui/react";
 import Navbar from "./Navbar";
 
 import { useRef } from "react";
 
-export default function MobileNavbar({
-  setTheme,
-  activeColor,
-}: {
-  setTheme: (color: string) => void;
-  activeColor: string;
-}) {
+export default function MobileNavbar({}: {}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef(null);
 
@@ -47,11 +40,7 @@ export default function MobileNavbar({
 
           <DrawerHeader />
           <DrawerBody pt={8}>
-            <Navbar
-              setTheme={setTheme}
-              activeColor={activeColor}
-              canHide={false}
-            />
+            <Navbar canHide={false} />
           </DrawerBody>
 
           <DrawerFooter></DrawerFooter>

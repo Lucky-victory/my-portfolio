@@ -41,6 +41,7 @@ const ContactForm = () => {
   const defaultStyles = {
     _focus: {
       borderColor: "var(--primary-theme-color)",
+      border: "2px",
     },
     className: fredokaFont.className,
     h: { lg: 65, base: 54 },
@@ -52,7 +53,7 @@ const ContactForm = () => {
     letterSpacing: "wider",
     fontSize: { lg: 18, base: 16 },
     rounded: "none",
-    border: "2px solid var(--app-color-3)",
+    border: "1px",
     variant: "unstyled",
   };
 
@@ -81,7 +82,7 @@ const ContactForm = () => {
       });
 
       setIsSubmitting(false);
-      setFormState({email:'',name:'',message:''})
+      setFormState({ email: "", name: "", message: "" });
       toast();
     } catch (error) {
       setIsSubmitting(false);
@@ -89,11 +90,11 @@ const ContactForm = () => {
         title: "An error occurred, please try again...",
         status: "error",
       });
-      console.warn({error});
+      console.warn({ error });
     }
   }
   function handleChange(
-    evt: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    evt: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
     const { name, value } = evt.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
@@ -200,6 +201,8 @@ const ContactForm = () => {
           py={"10"}
           px={{ lg: 8, base: 4 }}
           maxW={{ lg: 543, base: 450 }}
+          border={"2px"}
+          borderColor={"var(--primary-theme-color)"}
           bg={"var(--bg-color)"}
           boxShadow={{
             lg: "15px 10px 12px rgba(0, 0, 0, 0.25)",
@@ -210,12 +213,14 @@ const ContactForm = () => {
             placeholder="Your Name"
             onChange={handleChange}
             {...defaultStyles}
-            name="name" value={formState.name}
+            name="name"
+            value={formState.name}
           />
           <Input
             placeholder="Your email"
             onChange={handleChange}
-            {...defaultStyles} value={formState.email}
+            {...defaultStyles}
+            value={formState.email}
             type="email"
             name="email"
           />
@@ -224,7 +229,8 @@ const ContactForm = () => {
             name="message"
             minH={170}
             maxH={220}
-            {...defaultStyles} value={formState.message}
+            {...defaultStyles}
+            value={formState.message}
             h={183}
             py={4}
             onChange={handleChange}
@@ -241,33 +247,33 @@ const ContactForm = () => {
             justifyContent={"center"}
             fontSize={{ lg: 18, base: 17 }}
             rounded={"none"}
-       
-
-            border= "2px solid var(--primary-theme-color)"
+            border="2px solid var(--primary-theme-color)"
             bg="transparent"
-        
             className={fredokaFont.className}
-            pos={'relative'}
+            pos={"relative"}
             _before={{
               top: 0,
               pos: "absolute",
-              h: 'full',
-              w: 'full',
+              h: "full",
+              w: "full",
               content: `''`,
               bg: "var(--primary-theme-color)",
               left: 0,
               transition: "0.4s ease-in-out",
             }}
             color="var(--bg-color)"
-            _hover={{_disabled:{_before:{display:'none'}}, _before: { h: 0 }, color: "var(--primary-theme-color)"}}
-            _disabled={{_before:{display:'none'}}}
+            _hover={{
+              _disabled: { _before: { display: "none" } },
+              _before: { h: 0 },
+              color: "var(--primary-theme-color)",
+            }}
+            _disabled={{ _before: { display: "none" } }}
             type="submit"
             isLoading={isSubmitting}
             loadingText="Sending..."
           >
-            <Text as={'span'} pos={'relative'}>
-
-            Send Message
+            <Text as={"span"} pos={"relative"}>
+              Send Message
             </Text>
           </Button>
         </Stack>

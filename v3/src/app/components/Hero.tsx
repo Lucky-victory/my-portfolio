@@ -17,22 +17,16 @@ const fredoka = Fredoka({
   weight: ["400", "500", "600", "700"],
 });
 
-const Hero = ({
-  setTheme,
-  activeColor,
-}: {
-  setTheme: (color: string) => void;
-  activeColor: string;
-}) => {
+const Hero = ({}: {}) => {
   return (
-    <Box pos={"relative"} minH={723} id="about" as="section">
+    <Box pos={"relative"} id="about" as="section">
       <Box
         pos={"absolute"}
         inset={0}
-        bg={"var(--hero-bg-color)"}
+        bg={"var(--primary-theme-color)"}
         backdropFilter={"blur(50px)"}
       ></Box>
-      <Box
+      {/* <Box
         hideBelow={"lg"}
         minW={340}
         h={"full"}
@@ -40,24 +34,21 @@ const Hero = ({
         pos={"absolute"}
         right={0}
         top={0}
-        bg={"var(--img-area-bg)"}
-      >
-      
-      </Box>
+      ></Box> */}
       <Box pos={"relative"}>
         <Flex>
-          <Navbar setTheme={setTheme} activeColor={activeColor} />
+          <Navbar />
 
-          <MobileNavbar setTheme={setTheme} activeColor={activeColor} />
+          <MobileNavbar />
         </Flex>
 
         <Flex
-          pb={"2rem"}
+          pb={{ base: "2rem", md: "0" }}
           pt={"0rem"}
           px={{ base: "1rem", lg: "2rem" }}
           pos={"relative"}
           gap={"3rem"}
-          wrap={"wrap-reverse"}
+          wrap={"wrap"}
           mt={"2rem"}
           align={"center"}
           justify={{ base: "center" }}
@@ -67,15 +58,41 @@ const Hero = ({
           maxW={{ base: 950, lg: 1100 }}
         >
           <Box
+            bg={"#d9d9d9"}
+            p={5}
+            roundedTop={"full"}
+            roundedBottomEnd={{ base: "full", md: "none" }}
+          >
+            <Box
+              className="img-wrap"
+              overflow={"hidden"}
+              h={{ lg: "25.125rem", base: "20rem" }}
+              rounded={"full"}
+              pos={"relative"}
+              w={{ lg: "25.125rem", base: "20rem" }}
+            >
+              <Image
+                alt=""
+                w={"100%"}
+                objectPosition={"top"}
+                h="100%"
+                objectFit={"cover"}
+                src="/images/me.jpg"
+              />
+            </Box>
+          </Box>
+          <Box
             px={{ lg: "2rem", base: "0.5rem" }}
-            maxW={{ lg: 650, base: 480 }}
+            maxW={{ lg: 650, base: 500 }}
             minW={300}
-            bg={""}
             flex={1}
+            color={"white"}
           >
             <Flex gap={"0.5rem"} align={"center"}>
-              <Box h={1} w={"3.62rem"} bg={"var(--primary-theme-color)"}></Box>
-              <Text fontSize={"1.375rem"}>HELLO</Text>
+              <Box h={1} w={"3.62rem"} bg={"var(--bg-color)"}></Box>
+              <Text fontSize={"1.375rem"} textTransform={"capitalize"}>
+                Hi there
+              </Text>
             </Flex>
             <Heading
               mt={"0.5rem"}
@@ -83,62 +100,19 @@ const Hero = ({
               className={fredoka.className}
               fontSize={"3.125rem"}
             >
-              I&apos;m{" "}
-              <Text as={"span"} color={"var(--primary-theme-color)"}>
-                Lucky
-              </Text>{" "}
-              Victory
+              I&apos;m <Text as={"span"}>Lucky</Text> Victory
             </Heading>
             <Box fontSize={"1.05rem"}>
               <Text>
-                A dedicated web developer with a profound passion for design
-                aesthetics.
-                <br />
-                <br />
-                <Text fontWeight={"semibold"} as={"strong"}>
-                  Allow me to share a glimpse into my journey:
-                </Text>
-              </Text>
-              <br />
-              <Text lineHeight={""}>
-                Approximately five years ago, my curiosity led me to dive into
-                the intricacies of web development, with a specific focus on
-                frontend technologies. What began as a mere hobby has since
-                transformed into an unwavering passion, driving my commitment to
-                this ever-evolving field.
-                <br />
-                <br />
-                Today, I have embarked on a purposeful career path, ready to
-                harness my skills and expertise to craft innovative applications
-                that address genuine real-world challenges. Let&apos;s embark on
-                this exciting journey together, where my dedication and
-                proficiency in web development will bring your visions to life.
+                A web developer with a focus on delivering significant results,
+                eager to tackle a variety of challenges and employ creativity to
+                craft user-centric interfaces. Bringing proficiency in project
+                management, resolving user-centric issues, and promoting
+                collaborative teamwork. Skilled in leveraging innovative tools
+                and methodologies to streamline workflows and enhance user
+                satisfaction.
               </Text>
             </Box>
-          </Box>
-
-          <Box
-            className="img-wrap" overflow={'hidden'}
-            h={"33.125rem"}
-            pos={"relative"}
-            // ml={"-8.19rem"}
-            // mt={"5.69rem"}
-            bg={"var(--bg-color)"}
-            maxW={"28.125rem"}
-            w={"100%"}
-            boxShadow={"15px 10px 15px rgba(0,0,0,0.25)"}
-          >
-            <Text as={'span'}></Text>
-            <Text as={'span'}></Text>
-            <Text as={'span'}></Text>
-            <Text as={'span'}></Text>
-            <Image
-              alt=""
-              w={"100%"}
-              h="100%"
-              objectFit={"cover"}
-              src="/images/me.jpg"
-            />
           </Box>
         </Flex>
       </Box>

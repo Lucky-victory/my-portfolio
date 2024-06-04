@@ -1,10 +1,7 @@
-import { useSmoothScrollAndURLUpdate, useTheme } from "@/helpers/hooks";
-import { Box, Button, Flex, Input, Stack,Link } from "@chakra-ui/react";
+import { Box, Flex, Link } from "@chakra-ui/react";
 import { Fredoka } from "next/font/google";
-import { usePathname } from "next/navigation";
 
-import { useState, useRef, type MouseEvent, MouseEventHandler } from "react";
-import ThemeSwitcher from "./ThemeSwitcher";
+import { useState, useRef, useEffect } from "react";
 
 // import Link from 'next/link'
 const fredoka = Fredoka({
@@ -14,7 +11,7 @@ const fredoka = Fredoka({
 const navLinks = [
   {
     title: "About Me",
-    url: "/",
+    url: "#about",
   },
   {
     title: "Blog",
@@ -23,36 +20,65 @@ const navLinks = [
   { title: "Projects", url: "#projects" },
   { title: "Contact", url: "#contact" },
 ];
-const Navbar = ({
-  setTheme,
-  activeColor,
-  canHide = true,
-}: {
-  setTheme: (color: string) => void;
-  activeColor: string;
-  canHide?: boolean;
-}) => {
-  const pathname = usePathname();
-  // useSmoothScrollAndURLUpdate();
+const Navbar = ({ canHide = true }: { canHide?: boolean }) => {
+  const [hash, setHash] = useState("");
+  const [activeNav, setActiveNav] = useState("#about");
 
+  console.log({ hash });
+  useEffect(() => {
+    setActiveNav(hash);
+  }, [hash]);
+
+  useEffect(() => {
+    window.location.hash = "#about";
+    // Function to get the current hash
+    const getHash = () => {
+      setHash(window.location.hash);
+    };
+
+    // Get the initial hash
+    getHash();
+
+    // Add an event listener for hash changes
+    window.addEventListener("hashchange", getHash);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener("hashchange", getHash);
+    };
+  }, []);
+  const handleClick = (evt: any) => {
+    const navLink = evt.target;
+    setHash(navLink.getAttribute("href"));
+    setActiveNav(navLink.getAttribute("href"));
+  };
   const indicatorRef = useRef<HTMLDivElement | null>(null);
 
   function handleMouseOut(evt: any, isActive: boolean) {
     const navLink = evt.target;
+    // const active = hash === navLink.href || activeNav === navLink.href;
     if (isActive) {
-      navLink.style.background = "var(--primary-theme-color)";
+      navLink.style.background = "var(--bg-color)";
+      navLink.style.color = "var(--primary-theme-color)";
+    } else if (indicatorRef.current && !isActive) {
+      navLink.style.background = "none";
+      navLink.style.color = "var(--bg-color)";
     }
     if (indicatorRef.current) {
       const indicator = indicatorRef.current;
       indicator.style.width = `0`;
       indicator.style.height = `0`;
       indicator.style.top = `0`;
+      // navLink.style.color = "var(--primary-theme-color)";
       // indicator.style.left= `0`
     }
   }
-  function handleMouseMove(evt: any) {
+  function handleMouseMove(evt: any, isActive: boolean) {
     const navLink = evt.target;
-    navLink.style.background = "none";
+    // if (!isActive) {
+    //   navLink.style.background = "none";
+    //   navLink.style.color = "var(--bg-color)";
+    // }
     if (indicatorRef.current) {
       const indicator = indicatorRef.current;
       indicator.style.width = navLink.offsetWidth + "px";
@@ -75,12 +101,14 @@ const Navbar = ({
     borderRadius: "none",
     display: "block",
     w: { base: "full" },
+    color: "white",
+    _hover: { color: "var(--primary-theme-color)" },
   };
 
   return (
     <Flex
       zIndex={12}
-      maxW={{md:600,lg:1160}}
+      maxW={{ md: 600, lg: 1160 }}
       ml={"auto"}
       hideBelow={canHide ? "lg" : undefined}
       justify={"space-between"}
@@ -103,17 +131,18 @@ const Navbar = ({
         // w={'full'}
       >
         {navLinks.map((navLink, i) => {
-          const isActive = pathname === navLink.url;
-
+          const isActive = hash === navLink.url;
           return (
             <Box key={"navlink" + i} as={"li"} zIndex={2}>
-              <Link as={'a'}
-                onMouseOver={handleMouseMove}
+              <Link
+                as={"a"}
+                // onClick={handleClick}
+                onMouseOver={(evt) => handleMouseMove(evt, isActive)}
                 onMouseOut={(evt) => handleMouseOut(evt, isActive)}
-                bg={isActive ? "var(--primary-theme-color)" : ""}
                 {...defaultNavLinkOpts}
+                color={isActive ? "var(--primary-theme-color)" : "white"}
+                bg={isActive ? "var(--bg-color)" : "transparent"}
                 href={navLink.url}
-                
               >
                 {navLink.title}
               </Link>
@@ -127,11 +156,11 @@ const Navbar = ({
           top={0}
           left={0}
           transition={"0.3s"}
-          bg={"var(--primary-theme-color)"}
+          bg={"var(--bg-color)"}
           zIndex={0}
         ></Box>
       </Flex>
-      <ThemeSwitcher setTheme={setTheme} activeColor={activeColor} />
+      {/* <ThemeSwitcher setTheme={setTheme} activeColor={activeColor} /> */}
     </Flex>
   );
 };
