@@ -1,5 +1,5 @@
 import { Box, Button, Flex, Heading, Spinner, Stack, Text } from "@chakra-ui/react"
-import ThemeSwitcher from "./ThemeSwitcher"
+// import ThemeSwitcher from "./ThemeSwitcher"
 import { useTheme } from "@/helpers/hooks";
 import CustomButton from "./CustomButton";
 import { useEffect, useRef, useState } from "react";
@@ -40,7 +40,7 @@ const style={_before:{
 <Heading color={'white'}>Choose A theme</Heading>
 <Text fontSize={'sm'} color={'gray'}>You can change this later</Text>
 
-<ThemeSwitcher setTheme={setTheme} activeColor={activeColor}  fixedPos={false}/>
+{/* <ThemeSwitcher setTheme={setTheme} activeColor={activeColor}  fixedPos={false}/> */}
 
 <Button onClick={()=>hideLoader()} {...style} variant={'unstyled'} rounded={'none'} mt={6} size={'lg'}><Text as={'span'} pos={'relative'}> Continue</Text></Button>
 </Stack>
