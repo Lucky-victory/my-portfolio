@@ -76,8 +76,8 @@ interface FlattenedPost {
   url: string;
 }
 
-export const flattenGraphQLResponse = (
+function flattenGraphQLResponse(
   response: PublicationResponse
-): FlattenedPost[] => {
+): FlattenedPost[]{
   return response.publication.posts.edges.map((edge) => edge.node);
 };
