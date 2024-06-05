@@ -16,8 +16,8 @@ const PostCard = ({ post = {} }: { post: any }) => {
       overflow={"hidden"}
       bg={"var(--bg-color)"}
       rounded={"lg"}
-      minH={400}
-      minW={300}
+      minH={{ lg: 400, base: 350 }}
+      minW={{ lg: 300, base: 250 }}
       maxW={380}
       w={"full"}
       mb={3}
@@ -27,7 +27,7 @@ const PostCard = ({ post = {} }: { post: any }) => {
     >
       <Box height={200} w={"full"}>
         <Image
-          src={post?.coverImage}
+          src={post?.coverImage?.url}
           alt=""
           w={"full"}
           style={{ objectFit: "cover" }}

@@ -11,7 +11,7 @@
   --hero-bg-color: rgba(255, 255, 255, 0.1);
   --bg-color: white;
 
-  --section-bg-color: white;
+  --section-bg-color: #e2e2e7;
   --img-area-bg: linear-gradient(
     180deg,
     var(--primary-theme-color) 0%,
@@ -55,6 +55,7 @@ body {
 
 body {
   transition: all;
+  background: #d9d9d9;
 }
 
 a {

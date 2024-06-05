@@ -7,11 +7,10 @@ import PostCard from "./PostCard";
 
 const Blogs = () => {
   const [posts, setPosts] = useState([]);
-  const [loading, setIsLoading] = useState(false);
+  const [loading, setIsLoading] = useState(true);
   const fetchPosts = async () => {
+    setIsLoading(true);
     try {
-      setIsLoading(true);
-
       const response = await fetch("/api/blog");
 
       const jsonResponse = await response.json();

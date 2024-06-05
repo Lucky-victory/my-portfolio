@@ -77,7 +77,7 @@ const Hero = ({}: {}) => {
                 objectPosition={"top"}
                 h="100%"
                 objectFit={"cover"}
-                src="/images/me.jpg"
+                src="/images/me.png"
               />
             </Box>
           </Box>
@@ -89,8 +89,13 @@ const Hero = ({}: {}) => {
             color={"white"}
           >
             <Flex gap={"0.5rem"} align={"center"}>
-              <Box h={1} w={"3.62rem"} bg={"var(--bg-color)"}></Box>
-              <Text fontSize={"1.375rem"} textTransform={"capitalize"}>
+              <Box
+                h={1}
+                w={"3.62rem"}
+                bg={"var(--bg-color)"}
+                rounded={"lg"}
+              ></Box>
+              <Text fontSize={"1.375rem"} textTransform={"uppercase"}>
                 Hi there
               </Text>
             </Flex>
