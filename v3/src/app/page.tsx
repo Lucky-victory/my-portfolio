@@ -11,18 +11,17 @@ import Blog from "./components/Blog";
 import Loader from "./components/Loader";
 
 export default function Home() {
-  const { setTheme, activeColor } = useTheme("orange", 500);
-
+  // const { setTheme, activeColor } = useTheme("orange", 50);
 
   return (
     <>
       {/* <Loader /> */}
-    <main className={styles.main}>
-      <Hero setTheme={setTheme} activeColor={activeColor} />
-      <Blog />
-      <Projects />
-      <Contact />
-    </main>
+      <main className={styles.main}>
+        <Hero />
+        <Blog />
+        <Projects />
+        <Contact />
+      </main>
     </>
   );
 }
