@@ -50,7 +50,7 @@ const PostCard = ({ post = {} }: { post: any }) => {
           {shortenString(post?.brief)}{" "}
         </Text>
 
-        <CustomButton link={`${blogUrl}/${post?.slug}`} />
+        <CustomButton link={`${post?.url}`} />
       </Box>
     </Box>
   );
