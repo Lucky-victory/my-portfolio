@@ -21,7 +21,7 @@ const projects = [
     tools: ["Typescript", "NextJS", "Chakra UI", "NodeJS", "Express"],
     desc: "An image processing tool that allows you to resize, crop, and compress images.",
     git: "https://github.com/lucky-victory/next-image-processor-api",
-    live: "https://image-tools.vercel.app",
+    live: "https://image-tools-wine.vercel.app",
     cover: "/images/image-tools.png",
   },
   {
