@@ -32,7 +32,7 @@ export default function RootLayout({
         />
         <meta
           property="og:image"
-          content="https://devvick.com/images/devvick-og.png"
+          content="https://raw.githubusercontent.com/Lucky-victory/my-portfolio/master/v4/public/images/devvick-og.png"
         />
 
         <meta name="twitter:card" content="summary_large_image" />
@@ -46,7 +46,7 @@ export default function RootLayout({
         />
         <meta
           name="twitter:image"
-          content="https://devvick.com/images/devvick-og.png"
+          content="https://raw.githubusercontent.com/Lucky-victory/my-portfolio/master/v4/public/images/devvick-og.png"
         />
         <meta
           name="keywords"
