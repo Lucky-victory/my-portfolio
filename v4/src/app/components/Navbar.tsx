@@ -7,12 +7,7 @@ import {
   Container,
 } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Fredoka } from "next/font/google";
-
-const fredoka = Fredoka({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
+import { fredokaFont } from "@/helpers/font";
 
 const navLinks = [
   { title: "About Me", url: "#about" },
@@ -26,7 +21,7 @@ const MotionFlex = motion.create(Flex as any);
 
 const Navbar = ({ canHide = true }) => {
   const [activeNav, setActiveNav] = useState("#about");
-  const bgColor = useColorModeValue("transparent", "gray.800");
+  const bgColor = useColorModeValue("white", "gray.800");
   const textColor = useColorModeValue("gray.800", "white");
   const hoverColor = useColorModeValue("blue.500", "blue.300");
 
@@ -39,12 +34,13 @@ const Navbar = ({ canHide = true }) => {
   return (
     <Box
       as="nav"
-      position="sticky"
+      position="fixed"
       top={0}
       zIndex={100}
       bg={bgColor}
       boxShadow="sm"
       display={canHide ? { base: "none", lg: "block" } : "block"}
+      roundedBottom={"lg"}
     >
       <Container maxW="container.xl">
         <MotionFlex
@@ -60,8 +56,9 @@ const Navbar = ({ canHide = true }) => {
               <Box as="li" key={navLink.url}>
                 <Link
                   href={navLink.url}
-                  className={fredoka.className}
-                  fontWeight={600}
+                  className={fredokaFont.className}
+                  fontWeight={500}
+                  letterSpacing={"wider"}
                   fontSize="lg"
                   color={activeNav === navLink.url ? hoverColor : textColor}
                   position="relative"

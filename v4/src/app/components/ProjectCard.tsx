@@ -13,7 +13,7 @@ import GithubIcon from "./icons/GithubIcon";
 import CustomButton from "./CustomButton";
 import { fredokaFont } from "@/helpers/font";
 
-const MotionBox = motion.create(Box as any);
+const MotionFlex = motion.create(Flex as any);
 
 const projects = [
   {
@@ -29,9 +29,9 @@ const projects = [
     tools: [
       "NextJS",
       "Typescript",
+      "Redux Toolkit",
       "Wagmi",
       "Chakra UI",
-      "Redux Toolkit",
       "RainbowKit",
     ],
     desc: "Pontis is an innovative decentralized application (DApp) that redefines the NFT landscape by combining bridging, minting, and swapping functionalities into a single, user-friendly platform.",
@@ -56,14 +56,7 @@ const projects = [
   },
   {
     title: "Donare",
-    tools: [
-      "NextJS",
-      "Typescript",
-      "Wagmi",
-      "Headless UI",
-      "TailwindCSS",
-      "RainbowKit",
-    ],
+    tools: ["NextJS", "Typescript", "Wagmi", "TailwindCSS", "RainbowKit"],
     desc: `Donare enables trustworthy individuals to gather resources for pressing concerns and fund grants. Donare's reach isn't confined to a single blockchain; it's accessible to users across various EVM chains.`,
     git: "https://github.com/Lucky-victory/donare-frontend",
     live: "https://donare-dapp.vercel.app",
@@ -102,18 +95,19 @@ const ProjectCard = () => {
   return (
     <>
       {projects.map((project, i) => (
-        <MotionBox
+        <MotionFlex
           whileHover={{ scale: 1.05, boxShadow: "lg" }} // Subtle hover effect
           transition={{ duration: 0.3 }}
-          p={6}
+          p={{ base: 4, lg: 6 }}
           pb={4}
+          direction={"column"}
           borderWidth="1px"
           key={"projects" + i}
           borderRadius="lg"
           boxShadow="sm"
           bg="white"
           _dark={{ bg: "gray.800" }}
-          maxW="sm"
+          maxW={{ base: "xs", lg: "sm" }}
           overflow="hidden"
         >
           {/* <Box height={200} w="full"> */}
@@ -128,7 +122,7 @@ const ProjectCard = () => {
           />
           {/* </Box> */}
 
-          <Box p={4}>
+          <Flex flex={1} direction={"column"}>
             <Heading
               as="h3"
               size="md"
@@ -153,11 +147,11 @@ const ProjectCard = () => {
             <Heading as="h4" size="sm" mb={2}>
               Tools:
             </Heading>
-            <HStack wrap="wrap" spacing={2} mb={4}>
+            <HStack wrap="wrap" spacing={2}>
               {project.tools.map((tool, i) => (
                 <Text
                   key={"tool-" + i}
-                  px={3}
+                  px={{ base: 2, lg: 3 }}
                   py={1}
                   bg="gray.200"
                   _dark={{ bg: "gray.700" }}
@@ -170,7 +164,12 @@ const ProjectCard = () => {
               ))}
             </HStack>
 
-            <Flex justifyContent="space-between" mt={4}>
+            <Flex
+              justifyContent="space-between"
+              mt={2}
+              flex={1}
+              alignItems={"end"}
+            >
               <Link href={project.git} isExternal>
                 <CustomButton text="Source">
                   <GithubIcon />
@@ -182,8 +181,8 @@ const ProjectCard = () => {
                 </CustomButton>
               </Link>
             </Flex>
-          </Box>
-        </MotionBox>
+          </Flex>
+        </MotionFlex>
       ))}
     </>
   );

@@ -20,12 +20,19 @@ const MotionFlex = motion.create(Flex as any);
 const MotionImage = motion.create(Image as any);
 
 const Hero = () => {
-  const bgColor = useColorModeValue("blue.50", "gray.900");
+  const bgColor = useColorModeValue("blue.100", "gray.900");
   const textColor = useColorModeValue("gray.800", "white");
   const accentColor = useColorModeValue("blue.500", "blue.300");
 
   return (
-    <Box pos="relative" id="about" as="section" bg={bgColor} overflow="hidden">
+    <Box
+      pos="relative"
+      id="about"
+      roundedBottom={"lg"}
+      as="section"
+      bg={bgColor}
+      overflow="hidden"
+    >
       <Container maxW="container.xl" px={4}>
         <Flex>
           <Navbar />

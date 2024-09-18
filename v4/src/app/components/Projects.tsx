@@ -10,7 +10,7 @@ const Projects = () => {
       <Section>
         <Flex
           wrap={"wrap"}
-          gap={5}
+          gap={{ base: 5, lg: 6 }}
           // px={{ lg: 6, base: 4 }}
           my={6}
           maxW={1300}

@@ -14,13 +14,13 @@ const PostCard = ({ post = {} }: { post: any }) => {
     <MotionBox
       whileHover={{ scale: 1.05, boxShadow: "lg" }} // Subtle hover effect
       transition={{ duration: 0.3 }}
-      p={6}
+      p={{ base: 4, lg: 6 }}
       borderWidth="1px"
       borderRadius="lg"
       boxShadow="sm"
       bg="white"
       _dark={{ bg: "gray.800" }}
-      maxW="sm"
+      maxW={{ base: "xs", lg: "sm" }}
       overflow="hidden"
     >
       {post?.coverImage && (

@@ -49,7 +49,7 @@ const Blogs = () => {
               />
             </Flex>
           ) : (
-            <Flex wrap="wrap" gap={6} justify="center">
+            <Flex wrap="wrap" gap={{ base: 5, lg: 6 }} justify="center">
               {posts.map((post, i) => (
                 <MotionBox
                   key={`post-${i}`}
