@@ -19,7 +19,7 @@ const navLinks = [
 const MotionBox = motion.create(Box as any);
 const MotionFlex = motion.create(Flex as any);
 
-const Navbar = ({ canHide = true }) => {
+const Navbar = ({ canHide = true, isMobile = false }) => {
   const [activeNav, setActiveNav] = useState("#about");
   const bgColor = useColorModeValue("white", "gray.800");
   const textColor = useColorModeValue("gray.800", "white");
@@ -47,11 +47,17 @@ const Navbar = ({ canHide = true }) => {
           justify="center"
           align="center"
           py={4}
+          pt={isMobile ? 16 : 4}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Flex as="ul" listStyleType="none" gap={8}>
+          <Flex
+            as="ul"
+            listStyleType="none"
+            gap={8}
+            flexDir={isMobile ? "column" : "row"}
+          >
             {navLinks.map((navLink) => (
               <Box as="li" key={navLink.url}>
                 <Link

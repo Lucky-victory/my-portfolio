@@ -1,36 +1,11 @@
 :root {
   --max-width: 1350px;
   --border-radius: 12px;
-  /* --app-color-1: #29acda; */
-  --blue: #08b7f4;
+
   --blue-tint: rgba(8, 181, 244, 0.2);
-  --primary-theme-color: #7085da;
+  --primary-theme-color: var(--chakra-colors-blue-500);
 
-  --app-color-3: #5d6163;
-  --app-color-4: rgba(217, 217, 217, 0);
-  --hero-bg-color: rgba(255, 255, 255, 0.1);
   --bg-color: white;
-
-  --section-bg-color: #e2e2e7;
-  --img-area-bg: linear-gradient(
-    180deg,
-    var(--primary-theme-color) 0%,
-    var(--app-color-4) 100%
-  );
-  --orange: #ffa500;
-  --orange-tint: rgba(255, 166, 0, 0.2);
-  --purple: #a857f5;
-  --purple-tint: rgba(169, 87, 245, 0.2);
-  --green: #00cc00;
-  --green-tint: rgba(0, 204, 0, 0.2);
-  --red: #f70d43;
-  --red-tint: rgba(247, 13, 68, 0.2);
-  /* --tag-bg-gradient:var(--app-color-3); */
-  --tag-bg-gradient: linear-gradient(
-    180deg,
-    var(--primary-theme-color-tint) 0%,
-    var(--app-color-4) 100%
-  );
 }
 
 * {

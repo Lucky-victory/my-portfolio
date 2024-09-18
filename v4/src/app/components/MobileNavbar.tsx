@@ -58,7 +58,7 @@ const MobileNavbar = () => {
 
       <Drawer
         isOpen={isOpen}
-        placement="right" 
+        placement="right"
         onClose={onClose}
         finalFocusRef={btnRef}
         lockFocusAcrossFrames={false}
@@ -73,9 +73,7 @@ const MobileNavbar = () => {
         >
           <DrawerCloseButton color={textColor} />
           <DrawerBody pt={16}>
-            <VStack spacing={6} align="stretch">
-              <Navbar canHide={false} />
-            </VStack>
+            <Navbar canHide={false} isMobile={true} />
           </DrawerBody>
         </MotionDrawerContent>
       </Drawer>
