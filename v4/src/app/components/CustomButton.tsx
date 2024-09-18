@@ -1,6 +1,6 @@
 import { fredokaFont } from "@/helpers/font";
 import { Box, Button, Text } from "@chakra-ui/react";
-import Link from "next/link";
+import { Link } from "@chakra-ui/next-js";
 import { ReactNode } from "react";
 
 const CustomButton = ({
@@ -61,6 +61,7 @@ const CustomButton = ({
       border={"2px solid var(--primary-theme-color)"}
       bg={"transparent"}
       rounded={"full"}
+      isExternal
       px={4}
       overflow={"hidden"}
       py={2}

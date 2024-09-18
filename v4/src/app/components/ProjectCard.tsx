@@ -170,16 +170,13 @@ const ProjectCard = () => {
               flex={1}
               alignItems={"end"}
             >
-              <Link href={project.git} isExternal>
-                <CustomButton text="Source">
-                  <GithubIcon />
-                </CustomButton>
-              </Link>
-              <Link href={project.live} isExternal>
-                <CustomButton text="Live">
-                  <ChromeIcon />
-                </CustomButton>
-              </Link>
+              <CustomButton text="Source" link={project.git}>
+                <GithubIcon />
+              </CustomButton>
+
+              <CustomButton text="Live" link={project.live}>
+                <ChromeIcon />
+              </CustomButton>
             </Flex>
           </Flex>
         </MotionFlex>

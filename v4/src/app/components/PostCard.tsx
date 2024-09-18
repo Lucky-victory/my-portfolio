@@ -40,7 +40,7 @@ const PostCard = ({ post = {} }: { post: any }) => {
         mb={2}
         _hover={{ textDecoration: "underline" }}
       >
-        <Link href={`${blogUrl}/${post.slug}`} isExternal>
+        <Link href={`${post.url}`} isExternal>
           {post?.title}
         </Link>
       </Heading>
@@ -49,7 +49,7 @@ const PostCard = ({ post = {} }: { post: any }) => {
         {shortenString(post?.brief)}
       </Text>
 
-      <CustomButton text="Read more" link={`${blogUrl}/${post.slug}`} />
+      <CustomButton text="Read more" link={`${post.url}`} />
     </MotionBox>
   );
 };
