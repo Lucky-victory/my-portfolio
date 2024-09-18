@@ -16,6 +16,7 @@ import { Section } from "./Section";
 const MotionBox = motion.create(Box as any);
 
 const Blogs = () => {
+  const spinnerColor = useColorModeValue("blue.500", "blue.300");
   const [posts, setPosts] = useState([]);
   const [loading, setIsLoading] = useState(true);
 
@@ -43,10 +44,7 @@ const Blogs = () => {
         <AnimatePresence>
           {loading ? (
             <Flex justify="center" align="center" minH="300px">
-              <Spinner
-                size="xl"
-                color={useColorModeValue("blue.500", "blue.300")}
-              />
+              <Spinner size="xl" color={spinnerColor} />
             </Flex>
           ) : (
             <Flex wrap="wrap" gap={{ base: 5, lg: 6 }} justify="center">
