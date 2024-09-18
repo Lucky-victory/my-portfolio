@@ -1,36 +1,39 @@
 import { fredokaFont } from "@/helpers/font";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, useColorModeValue } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
-const SectionTitle = ({ title }: { title: string }) => {
+const MotionBox = motion.create(Box as any);
+const MotionHeading = motion.create(Heading as any);
+
+export const SectionTitle = ({ title }: { title: string }) => {
+  const accentColor = useColorModeValue("blue.500", "blue.300");
+
   return (
-    <Box
-      textAlign={"center"}
-      my={{ lg: 10, base: 8 }}
-      mb={{ lg: "16", base: "12" }}
-    >
-      <Heading
-        display={"inline-block"}
+    <Box textAlign="center" my={{ base: 8, lg: 12 }}>
+      <MotionHeading
         className={fredokaFont.className}
-        pos={"relative"}
-        letterSpacing={"wide"}
-        textTransform={"uppercase"}
-        fontSize={{ lg: "2.8125rem", base: "2.3rem" }}
-        _before={{
-          content: `''`,
-          pos: "absolute",
-          w: "100%",
-          top: "50%",
-          left: "18.5%",
-          bg: "var(--primary-theme-color)",
-          zIndex: "-1",
-          maxW: 300,
-          h: { lg: "48px", base: "32px" },
-        }}
+        fontSize={{ base: "3xl", lg: "4xl" }}
+        textTransform="uppercase"
+        letterSpacing="wide"
+        display="inline-block"
+        position="relative"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
       >
         {title}
-      </Heading>
+        <MotionBox
+          position="absolute"
+          bottom="-4px"
+          left="0"
+          right="0"
+          height="4px"
+          bg={accentColor}
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        />
+      </MotionHeading>
     </Box>
   );
 };
-
-export default SectionTitle;

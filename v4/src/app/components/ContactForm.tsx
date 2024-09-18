@@ -1,5 +1,4 @@
 import { fredokaFont } from "@/helpers/font";
-// import { Image } from "@chakra-ui/next-js";
 import {
   Box,
   Button,
@@ -17,12 +16,7 @@ import ChromeIcon from "./icons/ChromeIcon";
 import GithubIcon from "./icons/GithubIcon";
 import TwitterIcon from "./icons/TwitterIcon";
 import LinkedInIcon from "./icons/LinkedInIcon";
-import {
-  ChangeEvent,
-  FormEvent,
-  TextareaHTMLAttributes,
-  useState,
-} from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import Link from "next/link";
 
 const ContactForm = () => {
@@ -32,29 +26,19 @@ const ContactForm = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const toast = useToast({
-    status: "success",
-    title: "Message sent successfully",
-    position: "top",
-    duration: 4000,
-  });
+  const toast = useToast();
+
   const defaultStyles = {
-    _focus: {
-      borderColor: "var(--primary-theme-color)",
-      border: "2px",
-    },
     className: fredokaFont.className,
-    h: { lg: 65, base: 54 },
+    h: { lg: "56px", base: "48px" },
     isRequired: true,
-    px: {
-      lg: 6,
-      base: 4,
-    },
+    px: { lg: 6, base: 4 },
     letterSpacing: "wider",
     fontSize: { lg: 18, base: 16 },
-    rounded: "none",
+    rounded: "full",
     border: "1px",
     variant: "unstyled",
+    _focus: { border: "2px solid var(--primary-theme-color)" },
   };
 
   const socialBtnStyles = {
@@ -67,9 +51,9 @@ const ContactForm = () => {
     border: "2px solid var(--primary-theme-color)",
     transition: "0.3s",
   };
-  async function handleSubmit(evt: FormEvent) {
+
+  const handleSubmit = async (evt: FormEvent) => {
     evt.preventDefault();
-    console.log({ formState });
     setIsSubmitting(true);
     try {
       await fetch("/api/email/sender", {
@@ -80,134 +64,104 @@ const ContactForm = () => {
         method: "POST",
         body: JSON.stringify(formState),
       });
-
-      setIsSubmitting(false);
       setFormState({ email: "", name: "", message: "" });
-      toast();
-    } catch (error) {
-      setIsSubmitting(false);
       toast({
-        title: "An error occurred, please try again...",
-        status: "error",
+        title: "Message sent successfully.",
+        status: "success",
+        duration: 4000,
+        position: "top",
       });
-      console.warn({ error });
+    } catch (error) {
+      toast({
+        title: "An error occurred. Please try again.",
+        status: "error",
+        duration: 4000,
+        position: "top",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
-  }
-  function handleChange(
+  };
+
+  const handleChange = (
     evt: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) {
+  ) => {
     const { name, value } = evt.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
-  }
+  };
+
   return (
     <Box
-      w={"full"}
+      w="full"
       py={8}
-      pos={"relative"}
-      _before={{
-        pos: "absolute",
-        content: `''`,
-        bg: "var(--primary-theme-color)",
-        w: 500,
-        top: { lg: 0 },
-        bottom: { base: 0 },
-        right: 0,
-        h: { lg: "full", base: "50%" },
-      }}
+      pos="relative"
       pr={{ lg: 6, base: 4 }}
       pl={{ lg: 8, base: 4 }}
       maxW={1350}
-      mx={"auto"}
+      mx="auto"
     >
       <Flex
         justify={{ lg: "space-between", base: "center" }}
         gap={{ base: 6, lg: 8 }}
         maxW={1050}
-        mx={"auto"}
-        wrap={"wrap"}
+        mx="auto"
+        wrap="wrap"
       >
-        <Box flex={"1"} maxW={320} minW={300} pos={"relative"}>
-          <Heading className={fredokaFont.className} textAlign={"center"}>
+        {/* Left Side: Heading and Social Media */}
+        <Box flex="1" maxW={320} minW={300} textAlign="center">
+          <Heading className={fredokaFont.className}>
             Let&apos;s work together
           </Heading>
-          <Text textAlign={"center"} my={4}>
-            I&apos;m always at your service, you can reach me through this form.
+          <Text my={4}>
+            I&apos;m always at your service. Reach me through this form or on
+            social media.
           </Text>
-          <Flex
-            align={"center"}
-            className={fredokaFont.className}
-            justify={"center"}
-          >
-            <Box
-              zIndex={2}
-              fontWeight={"extrabold"}
-              fontSize={22}
-              pos={"relative"}
-              mt={6}
-              _before={{
-                pos: "absolute",
-                content: `''`,
-                h: 4,
-                w: 10,
-                bg: "var(--primary-theme-color)",
-                top: "50%",
-                left: "40%",
-              }}
-            >
-              <Text as={"span"} letterSpacing={"wider"} pos={"relative"}>
-                OR
-              </Text>
-            </Box>
-          </Flex>
-          <Text textAlign={"center"} mt={4}>
-            on social media
-          </Text>
-          <HStack spacing={8} my={8} mx={"auto"} justify={"center"}>
+
+          <Text mt={4}>Or find me on social media</Text>
+          <HStack spacing={8} my={8} justify="center">
             <Button
               as={Link}
+              href="https://twitter.com/lucky_victory1"
               target="_blank"
-              href={"https://twitter.com/lucky_victory1"}
-              title="twitter "
+              title="Twitter"
               {...socialBtnStyles}
             >
               <TwitterIcon />
             </Button>
             <Button
               as={Link}
+              href="https://linkedin.com/in/lucky-victory-success"
               target="_blank"
-              href={"https://linkedin.com/in/lucky-victory-success"}
+              title="LinkedIn"
               {...socialBtnStyles}
-              title="linkedin"
             >
               <LinkedInIcon />
             </Button>
             <Button
               as={Link}
+              href="https://github.com/lucky-victory"
               target="_blank"
-              href={"https://github.com/lucky-victory"}
-              title="github "
+              title="GitHub"
               {...socialBtnStyles}
             >
               <GithubIcon />
             </Button>
           </HStack>
         </Box>
+
+        {/* Right Side: Contact Form */}
         <Stack
-          as={"form"}
+          as="form"
           onSubmit={handleSubmit}
-          pos={"relative"}
-          w={"full"}
+          w="full"
           spacing={8}
-          py={"10"}
+          py={10}
           px={{ lg: 8, base: 4 }}
           maxW={{ lg: 543, base: 450 }}
-          border={"2px"}
-          borderColor={"var(--primary-theme-color)"}
-          bg={"var(--bg-color)"}
-          boxShadow={{
-            lg: "15px 10px 12px rgba(0, 0, 0, 0.25)",
-            base: "-15px 10px 12px rgba(0, 0, 0, 0.25),15px 10px 12px rgba(0, 0, 0, 0.25)",
-          }}
+          // border="2px solid var(--primary-theme-color)"
+          bg="var(--bg-color)"
+          boxShadow="lg"
+          rounded={"lg"}
         >
           <Input
             placeholder="Your Name"
@@ -217,28 +171,28 @@ const ContactForm = () => {
             value={formState.name}
           />
           <Input
-            placeholder="Your email"
+            placeholder="Your Email"
+            type="email"
             onChange={handleChange}
             {...defaultStyles}
-            value={formState.email}
-            type="email"
             name="email"
+            value={formState.email}
           />
           <Textarea
             placeholder="Your Message"
-            name="message"
-            minH={170}
-            maxH={220}
+            onChange={handleChange}
             {...defaultStyles}
+            name="message"
             value={formState.message}
             h={183}
             py={4}
-            onChange={handleChange}
+            maxH={220}
+            rounded={"2xl"}
           />
           <Button
             textTransform={"uppercase"}
             variant={"unstyled"}
-            py={{ lg: 4, base: 4 }}
+            py={{ lg: 3, base: 3 }}
             px={{ lg: 8, base: 6 }}
             h={"auto"}
             minH={{ lg: "45px", base: "40px" }}
@@ -246,7 +200,8 @@ const ContactForm = () => {
             alignItems={"center"}
             justifyContent={"center"}
             fontSize={{ lg: 18, base: 17 }}
-            rounded={"none"}
+            rounded={"full"}
+            overflow={"hidden"}
             border="2px solid var(--primary-theme-color)"
             bg="transparent"
             className={fredokaFont.className}

@@ -10,52 +10,10 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import { fredokaFont } from "@/helpers/font";
 import PostCard from "./PostCard"; // Assuming this component exists
+import { SectionTitle } from "./SectionTitle";
+import { Section } from "./Section";
 
-const MotionBox = motion(Box);
-const MotionHeading = motion(Heading);
-
-const SectionTitle = ({ title }) => {
-  const accentColor = useColorModeValue("blue.500", "blue.300");
-
-  return (
-    <Box textAlign="center" my={{ base: 8, lg: 12 }}>
-      <MotionHeading
-        className={fredokaFont.className}
-        fontSize={{ base: "3xl", lg: "4xl" }}
-        textTransform="uppercase"
-        letterSpacing="wide"
-        display="inline-block"
-        position="relative"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        {title}
-        <MotionBox
-          position="absolute"
-          bottom="-4px"
-          left="0"
-          right="0"
-          height="4px"
-          bg={accentColor}
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        />
-      </MotionHeading>
-    </Box>
-  );
-};
-
-const Section = ({ children, py = 12, minH = "auto" }) => {
-  const bgColor = useColorModeValue("gray.50", "gray.900");
-
-  return (
-    <Box as="section" bg={bgColor} py={py} minH={minH} position="relative">
-      <Container maxW="container.xl">{children}</Container>
-    </Box>
-  );
-};
+const MotionBox = motion.create(Box as any);
 
 const Blogs = () => {
   const [posts, setPosts] = useState([]);

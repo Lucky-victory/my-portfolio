@@ -1,26 +1,19 @@
-import { Box } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import { Box, Container, useColorModeValue } from "@chakra-ui/react";
 
-const Section = ({
+export const Section = ({
   children,
-  py = 6,
-  minH = 723,
+  py = 12,
+  minH = "auto",
 }: {
-  children: ReactNode;
-  py?: number | string;
-  minH?: string | number;
+  children: React.ReactNode;
+  py?: number;
+  minH?: string;
 }) => {
+  const bgColor = useColorModeValue("blue.50", "gray.900");
+
   return (
-    <Box pos={'relative'}
-      my={{ lg: 8, base: 6 }}
-      minH={minH}
-      bg={"var(--section-bg-color)"}
-      py={py}
-      px={{ lg: 8, base: 6, xs: 4 }}
-    >
-      {children}
+    <Box as="section" bg={bgColor} py={py} minH={minH} position="relative">
+      <Container maxW="container.xl">{children}</Container>
     </Box>
   );
 };
-
-export default Section;

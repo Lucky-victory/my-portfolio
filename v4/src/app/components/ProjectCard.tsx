@@ -13,9 +13,17 @@ import GithubIcon from "./icons/GithubIcon";
 import CustomButton from "./CustomButton";
 import { fredokaFont } from "@/helpers/font";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box as any);
 
 const projects = [
+  {
+    title: "Image Tools",
+    tools: ["Typescript", "NextJS", "Chakra UI", "NodeJS", "Express"],
+    desc: "An image processing tool that allows you to resize, crop, and compress images.",
+    git: "https://github.com/lucky-victory/next-image-processor-api",
+    live: "https://image-tools.vercel.app",
+    cover: "/images/image-tools.png",
+  },
   {
     title: "Pontis",
     tools: [
@@ -61,14 +69,7 @@ const projects = [
     live: "https://donare-dapp.vercel.app",
     cover: "/images/donare.png",
   },
-  {
-    title: "My Portfolio",
-    tools: ["Typescript", "NextJS", "Chakra UI", "Resend"],
-    desc: "My portfolio website serves as a creative canvas where I showcase my diverse range of projects, skills, and experiences. With an intuitive design and seamless navigation, it offers visitors a glimpse into my journey as a passionate creator.",
-    git: "https://github.com/lucky-victory/my-portfolio",
-    live: "https://lucky-victory.dev",
-    cover: "/images/portfolio.png",
-  },
+
   {
     title: "HackHost",
     tools: [
@@ -102,28 +103,30 @@ const ProjectCard = () => {
     <>
       {projects.map((project, i) => (
         <MotionBox
-          key={"project-" + i}
+          whileHover={{ scale: 1.05, boxShadow: "lg" }} // Subtle hover effect
+          transition={{ duration: 0.3 }}
+          p={6}
+          pb={4}
+          borderWidth="1px"
+          key={"projects" + i}
+          borderRadius="lg"
+          boxShadow="sm"
           bg="white"
           _dark={{ bg: "gray.800" }}
-          rounded="lg"
-          boxShadow="md"
           maxW="sm"
-          w="full"
           overflow="hidden"
-          transition="transform 0.3s ease"
-          _hover={{ transform: "translateY(-5px)", boxShadow: "xl" }}
         >
-          <Box height={200} w="full">
-            <Image
-              src={project.cover || "/images/math-in-software.png"}
-              alt={project.title}
-              w="full"
-              h="full"
-              objectFit="cover"
-              transition="0.3s ease-in-out"
-              _hover={{ transform: "scale(1.05)" }}
-            />
-          </Box>
+          {/* <Box height={200} w="full"> */}
+          <Image
+            src={project.cover || "/images/math-in-software.png"}
+            alt={project.title}
+            // w="full"
+            // h="full"
+            borderRadius="md"
+            mb={4}
+            objectFit="cover"
+          />
+          {/* </Box> */}
 
           <Box p={4}>
             <Heading

@@ -1,7 +1,7 @@
 const GithubIcon = () => {
   return (
     <svg viewBox="0 0 128 128">
-      <g fill="#fff">
+      <g fill="#000">
         <path
           fillRule="evenodd"
           clipRule="evenodd"

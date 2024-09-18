@@ -21,12 +21,12 @@ const navLinks = [
   { title: "Contact", url: "#contact" },
 ];
 
-const MotionBox = motion(Box);
-const MotionFlex = motion(Flex);
+const MotionBox = motion.create(Box as any);
+const MotionFlex = motion.create(Flex as any);
 
 const Navbar = ({ canHide = true }) => {
   const [activeNav, setActiveNav] = useState("#about");
-  const bgColor = useColorModeValue("white", "gray.800");
+  const bgColor = useColorModeValue("transparent", "gray.800");
   const textColor = useColorModeValue("gray.800", "white");
   const hoverColor = useColorModeValue("blue.500", "blue.300");
 

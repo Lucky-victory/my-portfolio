@@ -4,7 +4,7 @@
   /* --app-color-1: #29acda; */
   --blue: #08b7f4;
   --blue-tint: rgba(8, 181, 244, 0.2);
-  --primary-theme-color: #716f6c;
+  --primary-theme-color: #7085da;
 
   --app-color-3: #5d6163;
   --app-color-4: rgba(217, 217, 217, 0);
@@ -55,7 +55,7 @@ body {
 
 body {
   transition: all;
-  background: #d9d9d9;
+  background: #e3e3e3;
 }
 
 a {

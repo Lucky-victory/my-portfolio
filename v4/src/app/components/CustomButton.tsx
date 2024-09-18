@@ -25,6 +25,7 @@ const CustomButton = ({
           bg: "var(--primary-theme-color)",
           left: 0,
           transition: "0.4s ease-in-out",
+          rounded: "inherit",
         },
         color: "var(--primary-theme-color)",
         _hover: { _before: { w: "full" }, color: "white" },
@@ -39,6 +40,7 @@ const CustomButton = ({
           bg: "var(--primary-theme-color)",
           right: 0,
           transition: "0.4s ease-in-out",
+          rounded: "inherit",
         },
         color: "white",
         _hover: { _before: { w: 0 }, color: "var(--primary-theme-color)" },
@@ -58,8 +60,9 @@ const CustomButton = ({
       variant={"unstyled"}
       border={"2px solid var(--primary-theme-color)"}
       bg={"transparent"}
-      rounded={"none"}
+      rounded={"full"}
       px={4}
+      overflow={"hidden"}
       py={2}
     >
       <Box

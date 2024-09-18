@@ -14,7 +14,7 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "./Navbar";
 
-const MotionBox = motion(Box);
+const MotionBox = motion.create(Box as any);
 
 const MobileNavbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -24,7 +24,7 @@ const MobileNavbar = () => {
   const textColor = useColorModeValue("gray.800", "white");
   const iconColor = useColorModeValue("blue.500", "blue.300");
 
-  const MotionDrawerContent = motion(DrawerContent);
+  const MotionDrawerContent = motion.create(DrawerContent as any);
 
   return (
     <Box display={{ base: "block", lg: "none" }} ml="auto" mt={2}>
@@ -58,9 +58,10 @@ const MobileNavbar = () => {
 
       <Drawer
         isOpen={isOpen}
-        placement="right"
+        placement="right" 
         onClose={onClose}
         finalFocusRef={btnRef}
+        lockFocusAcrossFrames={false}
       >
         <DrawerOverlay />
         <MotionDrawerContent

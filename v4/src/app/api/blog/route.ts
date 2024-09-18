@@ -6,7 +6,7 @@ export async function GET(req: NextRequest) {
     const query = JSON.stringify({
       query: `query Publication {
   publication(host:"blog.devvick.com") {
-    posts (first:9){
+    posts (first:6){
       edges{
         node {
           coverImage {
@@ -78,6 +78,6 @@ interface FlattenedPost {
 
 function flattenGraphQLResponse(
   response: PublicationResponse
-): FlattenedPost[]{
+): FlattenedPost[] {
   return response.publication.posts.edges.map((edge) => edge.node);
-};
+}

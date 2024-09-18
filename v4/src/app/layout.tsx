@@ -1,10 +1,10 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { ChakraProvider } from "./providers/chakra-provider";
-import { Inter, Fredoka } from "next/font/google";
+import { Inter, Fredoka, PT_Sans } from "next/font/google";
 
 const fredokaOne = Fredoka({ subsets: ["latin"] });
-const inter = Inter({ subsets: ["latin"] });
+const inter = PT_Sans({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
   title: "Lucky Victory | Web Developer",

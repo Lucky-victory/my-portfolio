@@ -11,18 +11,13 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { Fredoka } from "next/font/google";
+import { fredokaFont } from "@/helpers/font";
 import Navbar from "./Navbar";
 import MobileNavbar from "./MobileNavbar";
 
-const fredoka = Fredoka({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const MotionBox = motion(Box);
-const MotionFlex = motion(Flex);
-const MotionImage = motion(Image);
+const MotionBox = motion.create(Box as any);
+const MotionFlex = motion.create(Flex as any);
+const MotionImage = motion.create(Image as any);
 
 const Hero = () => {
   const bgColor = useColorModeValue("blue.50", "gray.900");
@@ -60,7 +55,7 @@ const Hero = () => {
                 </Text>
               </HStack>
               <Heading
-                className={fredoka.className}
+                className={fredokaFont.className}
                 fontSize={{ base: "4xl", md: "5xl", lg: "6xl" }}
                 color={textColor}
                 lineHeight="shorter"
@@ -71,7 +66,7 @@ const Hero = () => {
                 </Text>{" "}
                 Victory
               </Heading>
-              <Text fontSize="xl" color={textColor}>
+              <Text fontSize="xl" color={textColor} maxW={"500px"}>
                 A web developer focused on delivering impactful results,
                 crafting user-centric interfaces, and driving innovation in
                 project management and team collaboration.
@@ -87,12 +82,12 @@ const Hero = () => {
             transition={{ delay: 0.4, duration: 0.5 }}
           >
             <MotionImage
-              src="/images/me.png"
+              src="/images/me.jpeg"
               alt="Lucky Victory"
               objectFit="cover"
               w="full"
               h={{ base: "350px", md: "450px" }}
-              rounded="3xl"
+              rounded={{ base: "full", md: "3xl" }}
               shadow="2xl"
               initial={{ scale: 0.8 }}
               animate={{ scale: 1 }}

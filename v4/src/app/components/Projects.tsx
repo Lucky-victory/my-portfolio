@@ -1,6 +1,6 @@
 import { Box, Flex } from "@chakra-ui/react";
-import Section from "./Section";
-import SectionTitle from "./SectionTitle";
+import { Section } from "./Section";
+import { SectionTitle } from "./SectionTitle";
 import ProjectCard from "./ProjectCard";
 
 const Projects = () => {
@@ -16,11 +16,9 @@ const Projects = () => {
           maxW={1300}
           mx={"auto"}
           justify={"center"}
-      px={{base:4,lg:4}}
-
+          px={{ base: 4, lg: 4 }}
         >
           <ProjectCard />
-       
         </Flex>
       </Section>
     </section>
